@@ -2,7 +2,6 @@
 using MetaMask.Domain.Adapter;
 using MetaMask.Domain.Business;
 using MetaMask.Domain.Orchestrator;
-using MetaMask.Integration.Chrome;
 using MetaMask.Orchestrator;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -24,7 +23,7 @@ namespace MetaMask.Client.Configurations
 
         public static IServiceCollection AddAdapter(this IServiceCollection services)
         {
-            services.AddTransient<IChromeAdapter, ChromeAdapter>();
+            //services.AddTransient<IChromeAdapter, ChromeAdapter>();
             return services;
         }
 

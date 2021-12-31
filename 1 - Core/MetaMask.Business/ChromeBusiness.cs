@@ -5,7 +5,7 @@ namespace MetaMask.Business
 {
     public class ChromeBusiness : IChromeBusiness
     {
-        IChromeAdapter _chromeAdapter;
+        readonly IChromeAdapter _chromeAdapter;
 
         public ChromeBusiness(IChromeAdapter chromeAdapter)
         {

@@ -5,7 +5,7 @@ namespace MetaMask.Orchestrator
 {
     public class ChromeOrchestrator : IChromeOrchestrator
     {
-        IChromeBusiness _chromeBusiness;
+        readonly IChromeBusiness _chromeBusiness;
 
         public ChromeOrchestrator(IChromeBusiness chromeBusiness)
         {
