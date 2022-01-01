@@ -11,7 +11,7 @@ namespace MetaMask.Client.Configurations
     {
         public static IServiceCollection AddOrchestrator(this IServiceCollection services)
         {
-            services.AddScoped<IChromeOrchestrator, ChromeOrchestrator>();
+            services.AddScoped<ICryptoOrchestrator, CryptoOrchestrator>();
             return services;
         }
 

@@ -4,11 +4,11 @@ namespace MetaMask.Client
 {
     public partial class Form1 : Form
     {
-        private readonly IChromeOrchestrator? _chromeOrchestrator;
+        private readonly ICryptoOrchestrator? _chromeOrchestrator;
 
         public Form1()
         {
-            _chromeOrchestrator = Program.ServiceProvider?.GetService(typeof(IChromeOrchestrator)) as IChromeOrchestrator;
+            _chromeOrchestrator = Program.ServiceProvider?.GetService(typeof(ICryptoOrchestrator)) as ICryptoOrchestrator;
             InitializeComponent();
         }
 
