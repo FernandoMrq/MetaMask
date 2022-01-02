@@ -1,5 +1,4 @@
 ﻿using MetaMask.Business;
-using MetaMask.Domain.Adapter;
 using MetaMask.Domain.Business;
 using MetaMask.Domain.Orchestrator;
 using MetaMask.Orchestrator;
