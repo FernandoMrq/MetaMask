@@ -3,6 +3,9 @@ using MRQ.CryptoBot.Domain.Business;
 using MRQ.CryptoBot.Domain.Orchestrator;
 using MRQ.CryptoBot.Orchestrator;
 using Microsoft.Extensions.DependencyInjection;
+using MRQ.CryptoBot.Domain.Entities.Moralis;
+using MRQ.CryptoBot.Repository.Service;
+using MRQ.CryptoBot.Domain.Adapter.Data;
 
 namespace MRQ.CryptoBot.Client.Configurations
 {
@@ -22,7 +25,9 @@ namespace MRQ.CryptoBot.Client.Configurations
 
         public static IServiceCollection AddAdapter(this IServiceCollection services)
         {
-            //services.AddTransient<IChromeAdapter, ChromeAdapter>();
+            services.AddTransient<ISQLiteEntityAdapter<Balance>, EntityService<Balance>>();
+            services.AddTransient<ISQLiteEntityAdapter<NativePrice>, EntityService<NativePrice>>();
+            
             return services;
         }
 

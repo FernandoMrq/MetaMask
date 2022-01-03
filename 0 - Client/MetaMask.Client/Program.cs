@@ -20,22 +20,15 @@ namespace MRQ.CryptoBot.Client
         }
          
         public static IServiceProvider? ServiceProvider { get; set; }
-        //public static IConfiguration? Configuration;
 
         static void ConfigureServices()
         {
             var services = new ServiceCollection();
-            //var builder = new ConfigurationBuilder()
-                //.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
 
             services.AddInfra();
             services.AddAdapter();
             services.AddBusiness();
             services.AddOrchestrator();
-
-            //Configuration = builder.Build();
-
-            //services.AddContext();
 
             ServiceProvider = services.BuildServiceProvider();
         }

@@ -5,11 +5,9 @@ namespace MRQ.CryptoBot.Repository
 {
     public class SQLiteContext : DbContext
     {
-        //public SQLiteContext(DbContextOptions<SQLiteContext> options) : base(options) { }
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("context.db");
+            optionsBuilder.UseSqlite("Data Source=context.db"); //Melhorar essa parte
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
