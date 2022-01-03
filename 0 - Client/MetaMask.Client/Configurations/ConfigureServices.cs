@@ -10,13 +10,13 @@ namespace MRQ.CryptoBot.Client.Configurations
     {
         public static IServiceCollection AddOrchestrator(this IServiceCollection services)
         {
-            services.AddScoped<ICryptoOrchestrator, CryptoOrchestrator>();
+            //services.AddScoped<ICryptoOrchestrator, CryptoOrchestrator>();
             return services;
         }
 
         public static IServiceCollection AddBusiness(this IServiceCollection services)
         {
-            services.AddTransient<IChromeBusiness, ChromeBusiness>();
+            //services.AddTransient<IChromeBusiness, ChromeBusiness>();
             return services;
         }
 

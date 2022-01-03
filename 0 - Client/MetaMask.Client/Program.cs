@@ -1,5 +1,6 @@
 using MRQ.CryptoBot.Client.Configurations;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Configuration;
 
 namespace MRQ.CryptoBot.Client
 {
@@ -17,17 +18,24 @@ namespace MRQ.CryptoBot.Client
             ConfigureServices();
             Application.Run(new Form1());
         }
-
+         
         public static IServiceProvider? ServiceProvider { get; set; }
+        public static IConfiguration? Configuration;
 
         static void ConfigureServices()
         {
             var services = new ServiceCollection();
+            var builder = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
 
             services.AddInfra();
             services.AddAdapter();
             services.AddBusiness();
             services.AddOrchestrator();
+
+            Configuration = builder.Build();
+
+            services.AddContext(Configuration);
 
             ServiceProvider = services.BuildServiceProvider();
         }
