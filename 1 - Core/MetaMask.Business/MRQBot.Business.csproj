@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\2 - Adapter\MetaMask.Integration\MRQ.CryptoBot.Integration.csproj" />
-    <ProjectReference Include="..\..\2 - Adapter\MRQ.CryptoBot.Repository\MRQ.CryptoBot.Repository\MRQ.CryptoBot.Repository.csproj" />
     <ProjectReference Include="..\MetaMask.Domain\MRQ.CryptoBot.Domain.csproj" />
   </ItemGroup>
 

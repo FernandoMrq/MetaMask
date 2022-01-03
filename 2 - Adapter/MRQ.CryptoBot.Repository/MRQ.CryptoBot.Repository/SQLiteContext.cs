@@ -16,8 +16,6 @@ namespace MRQ.CryptoBot.Repository
         {
             modelBuilder.Entity<Balance>().HasKey(b => b.Id);
             modelBuilder.Entity<NativePrice>().HasKey(b => b.Id);
-
-            //modelBuilder.Entity<Balance>().HasOne(b => b.NativePrice);
         }
 
         public DbSet<Balance>? Balances { get; set; }
