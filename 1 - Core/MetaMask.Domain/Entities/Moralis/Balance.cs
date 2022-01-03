@@ -3,9 +3,10 @@
     public class Balance
     {
         public int Id { get; set; }
-        public NativePrice? NativePrice { get; set; }
         public Decimal UsdPrice { get; set; }
         public string? ExchangeAddress { get; set; }
         public string? ExchangeName { get; set; }
+        public NativePrice NativePrice { get; set; }
+        public int NativePriceId { get; set; }
     }
 }

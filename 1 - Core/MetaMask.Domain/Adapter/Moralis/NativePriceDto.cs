@@ -1,6 +1,6 @@
 ﻿namespace MRQ.CryptoBot.Domain.Adapter.Moralis
 {
-    public class NativePrice
+    public class NativePriceDto
     {
         public string? Value { get; set; }
         public int? Decimals { get; set; }
