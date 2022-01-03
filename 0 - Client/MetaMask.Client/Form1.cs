@@ -1,6 +1,6 @@
-using MetaMask.Domain.Orchestrator;
+using MRQ.CryptoBot.Domain.Orchestrator;
 
-namespace MetaMask.Client
+namespace MRQ.CryptoBot.Client
 {
     public partial class Form1 : Form
     {
@@ -14,7 +14,7 @@ namespace MetaMask.Client
 
         private void iniciaChrome_Click(object sender, EventArgs e)
         {
-            _chromeOrchestrator?.ReturnChrome();
+            _chromeOrchestrator?.GetTokenBalance("");
         }
     }
 }

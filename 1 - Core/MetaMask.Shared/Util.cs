@@ -1,4 +1,4 @@
-﻿namespace MetaMask.Shared
+﻿namespace MRQ.CryptoBot.Shared
 {
     public static class Util
     {

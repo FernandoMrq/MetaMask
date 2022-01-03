@@ -1,7 +1,7 @@
-﻿using MetaMask.Domain.Business;
-using MetaMask.Domain.Orchestrator;
+﻿using MRQ.CryptoBot.Domain.Business;
+using MRQ.CryptoBot.Domain.Orchestrator;
 
-namespace MetaMask.Orchestrator
+namespace MRQ.CryptoBot.Orchestrator
 {
     public class CryptoOrchestrator : ICryptoOrchestrator
     {

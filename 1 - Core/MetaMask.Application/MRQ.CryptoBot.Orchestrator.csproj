@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MetaMask.Business\MetaMask.Business.csproj" />
+    <ProjectReference Include="..\MetaMask.Business\MRQBot.Business.csproj" />
   </ItemGroup>
 
 </Project>

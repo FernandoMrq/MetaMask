@@ -1,6 +1,7 @@
-﻿namespace MetaMask.Integration.Moralis
+﻿namespace MRQ.CryptoBot.Integration.Moralis
 {
-    internal class MoralisBalanceAdapter
+    public class MoralisBalanceAdapter
     {
+
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace MetaMask.Domain.Orchestrator
+﻿namespace MRQ.CryptoBot.Domain.Orchestrator
 {
     public interface ICryptoOrchestrator
     {

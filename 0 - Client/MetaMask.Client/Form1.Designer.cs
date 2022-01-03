@@ -1,4 +1,4 @@
-﻿namespace MetaMask.Client
+﻿namespace MRQ.CryptoBot.Client
 {
     partial class Form1
     {

@@ -1,4 +1,4 @@
-﻿namespace MetaMask.Domain.Business
+﻿namespace MRQ.CryptoBot.Domain.Business
 {
     public interface IChromeBusiness
     {

@@ -1,10 +1,10 @@
-﻿using MetaMask.Business;
-using MetaMask.Domain.Business;
-using MetaMask.Domain.Orchestrator;
-using MetaMask.Orchestrator;
+﻿using MRQ.CryptoBot.Business;
+using MRQ.CryptoBot.Domain.Business;
+using MRQ.CryptoBot.Domain.Orchestrator;
+using MRQ.CryptoBot.Orchestrator;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace MetaMask.Client.Configurations
+namespace MRQ.CryptoBot.Client.Configurations
 {
     public static class ConfigureServices
     {

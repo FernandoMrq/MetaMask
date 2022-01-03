@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\1 - Core\MetaMask.Application\MetaMask.Orchestrator.csproj" />
+    <ProjectReference Include="..\..\1 - Core\MetaMask.Application\MRQ.CryptoBot.Orchestrator.csproj" />
   </ItemGroup>
 
 </Project>

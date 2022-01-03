@@ -1,7 +1,7 @@
-﻿using MetaMask.Domain.Adapter;
-using MetaMask.Domain.Business;
+﻿using MRQ.CryptoBot.Domain.Adapter;
+using MRQ.CryptoBot.Domain.Business;
 
-namespace MetaMask.Business
+namespace MRQ.CryptoBot.Business
 {
     public class ChromeBusiness : IChromeBusiness
     {

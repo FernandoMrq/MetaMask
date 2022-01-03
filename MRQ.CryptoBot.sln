@@ -13,31 +13,31 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Infra", "3 - Infra", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Tests", "4 - Tests", "{10F74CE0-CB8C-46E6-A4CD-5F4548F5F3E3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MetaMask.Client", "0 - Client\MetaMask.Client\MetaMask.Client.csproj", "{3AF290E0-F1D1-4D97-9BCA-130E3D7A69C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MRQ.CryptoBot.Client", "0 - Client\MetaMask.Client\MRQ.CryptoBot.Client.csproj", "{3AF290E0-F1D1-4D97-9BCA-130E3D7A69C0}"
 	ProjectSection(ProjectDependencies) = postProject
 		{F442B014-8592-4ACB-A9EE-939601655FFE} = {F442B014-8592-4ACB-A9EE-939601655FFE}
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MetaMask.Orchestrator", "1 - Core\MetaMask.Application\MetaMask.Orchestrator.csproj", "{F442B014-8592-4ACB-A9EE-939601655FFE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MRQ.CryptoBot.Orchestrator", "1 - Core\MetaMask.Application\MRQ.CryptoBot.Orchestrator.csproj", "{F442B014-8592-4ACB-A9EE-939601655FFE}"
 	ProjectSection(ProjectDependencies) = postProject
 		{B1F637A0-1F73-428B-893E-5FBC67AFECC1} = {B1F637A0-1F73-428B-893E-5FBC67AFECC1}
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MetaMask.Business", "1 - Core\MetaMask.Business\MetaMask.Business.csproj", "{B1F637A0-1F73-428B-893E-5FBC67AFECC1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MRQBot.Business", "1 - Core\MetaMask.Business\MRQBot.Business.csproj", "{B1F637A0-1F73-428B-893E-5FBC67AFECC1}"
 	ProjectSection(ProjectDependencies) = postProject
 		{870DD03E-FAB8-40A7-B788-B93DA0922E89} = {870DD03E-FAB8-40A7-B788-B93DA0922E89}
 		{06E9F6BE-4C3A-41C6-A9C6-5812B3084949} = {06E9F6BE-4C3A-41C6-A9C6-5812B3084949}
 		{984B2ADC-25EE-45DF-9C0F-2ACE2563C9B9} = {984B2ADC-25EE-45DF-9C0F-2ACE2563C9B9}
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MetaMask.Domain", "1 - Core\MetaMask.Domain\MetaMask.Domain.csproj", "{984B2ADC-25EE-45DF-9C0F-2ACE2563C9B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MRQ.CryptoBot.Domain", "1 - Core\MetaMask.Domain\MRQ.CryptoBot.Domain.csproj", "{984B2ADC-25EE-45DF-9C0F-2ACE2563C9B9}"
 	ProjectSection(ProjectDependencies) = postProject
 		{6C1BA05B-3C72-4441-B5D0-1C4196103AAB} = {6C1BA05B-3C72-4441-B5D0-1C4196103AAB}
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MetaMask.Shared", "1 - Core\MetaMask.Shared\MetaMask.Shared.csproj", "{6C1BA05B-3C72-4441-B5D0-1C4196103AAB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MRQ.CryptoBot.Shared", "1 - Core\MetaMask.Shared\MRQ.CryptoBot.Shared.csproj", "{6C1BA05B-3C72-4441-B5D0-1C4196103AAB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MetaMask.Integration", "2 - Adapter\MetaMask.Integration\MetaMask.Integration.csproj", "{06E9F6BE-4C3A-41C6-A9C6-5812B3084949}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MRQ.CryptoBot.Integration", "2 - Adapter\MetaMask.Integration\MRQ.CryptoBot.Integration.csproj", "{06E9F6BE-4C3A-41C6-A9C6-5812B3084949}"
 	ProjectSection(ProjectDependencies) = postProject
 		{984B2ADC-25EE-45DF-9C0F-2ACE2563C9B9} = {984B2ADC-25EE-45DF-9C0F-2ACE2563C9B9}
 	EndProjectSection
@@ -51,9 +51,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - ToExternalLibrary", "5 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MRQ.ReturnContent", "..\Library\MRQ.ReturnContent\MRQ.ReturnContent.csproj", "{EBDB054D-02EC-426E-83C6-70054BE180E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetaMask.Test", "4 - Tests\PancakeSwapAdapterTest\MetaMask.Test.csproj", "{11C92AF7-6BC2-403B-8B0E-431890755698}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MRQ.CryptoBot.Test", "4 - Tests\PancakeSwapAdapterTest\MRQ.CryptoBot.Test.csproj", "{11C92AF7-6BC2-403B-8B0E-431890755698}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetaMask.Infra", "3 - Infra\MetaMask.Infra\MetaMask.Infra.csproj", "{EED49072-05F9-456E-9002-E67248B20FA0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MRQ.CryptoBot.Infra", "3 - Infra\MetaMask.Infra\MRQ.CryptoBot.Infra.csproj", "{EED49072-05F9-456E-9002-E67248B20FA0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

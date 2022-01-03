@@ -1,7 +1,7 @@
-using MetaMask.Client.Configurations;
+using MRQ.CryptoBot.Client.Configurations;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace MetaMask.Client
+namespace MRQ.CryptoBot.Client
 {
     internal static class Program
     {

@@ -1,4 +1,4 @@
-﻿namespace MetaMask.Integration.Nethereum
+﻿namespace MRQ.CryptoBot.Integration.Nethereum
 {
     public class Pancakeswap
     {

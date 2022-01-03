@@ -1,4 +1,4 @@
-﻿namespace MetaMask.Domain.Entities
+﻿namespace MRQ.CryptoBot.Domain.Entities
 {
     internal class Token
     {

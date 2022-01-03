@@ -1,4 +1,4 @@
-﻿namespace MetaMask.Domain.Adapter
+﻿namespace MRQ.CryptoBot.Domain.Adapter
 {
     public interface IChromeAdapter
     {
