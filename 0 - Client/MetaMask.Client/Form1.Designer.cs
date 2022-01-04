@@ -32,6 +32,9 @@
             this.button1 = new System.Windows.Forms.Button();
             this.valorToken = new System.Windows.Forms.Label();
             this.tokenAdress = new System.Windows.Forms.TextBox();
+            this.walletadress = new System.Windows.Forms.TextBox();
+            this.balance = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // iniciaChrome
@@ -70,11 +73,40 @@
             this.tokenAdress.Size = new System.Drawing.Size(301, 23);
             this.tokenAdress.TabIndex = 3;
             // 
+            // walletadress
+            // 
+            this.walletadress.Location = new System.Drawing.Point(374, 347);
+            this.walletadress.Name = "walletadress";
+            this.walletadress.Size = new System.Drawing.Size(301, 23);
+            this.walletadress.TabIndex = 4;
+            // 
+            // balance
+            // 
+            this.balance.AutoSize = true;
+            this.balance.Location = new System.Drawing.Point(374, 382);
+            this.balance.Name = "balance";
+            this.balance.Size = new System.Drawing.Size(48, 15);
+            this.balance.TabIndex = 5;
+            this.balance.Text = "Balance";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(374, 415);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(122, 23);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "Atualiza Balance";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.balance);
+            this.Controls.Add(this.walletadress);
             this.Controls.Add(this.tokenAdress);
             this.Controls.Add(this.valorToken);
             this.Controls.Add(this.button1);
@@ -92,5 +124,8 @@
         private Button button1;
         private Label valorToken;
         private TextBox tokenAdress;
+        private TextBox walletadress;
+        private Label balance;
+        private Button button2;
     }
 }

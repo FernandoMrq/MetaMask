@@ -1,4 +1,5 @@
 ﻿using MRQ.CryptoBot.Domain.Adapter.Moralis;
+using MRQ.CryptoBot.Domain.Adapter.PancakeSwap;
 using MRQ.CryptoBot.Domain.Business;
 using MRQ.CryptoBot.Domain.Orchestrator;
 
@@ -11,6 +12,11 @@ namespace MRQ.CryptoBot.Orchestrator
         public MoralisBalanceOrchestrator(IMoralisBalanceBusiness moralisBalanceBusiness)
         {
             _moralisBalanceBusiness = moralisBalanceBusiness;
+        }
+
+        public Task GetBalanceOfToken(WalletDto walletDto)
+        {
+            return _moralisBalanceBusiness.GetBalanceOfToken(walletDto);
         }
 
         public async Task<BalanceDto> GetTokenBalance(string token)

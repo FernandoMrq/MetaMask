@@ -1,3 +1,4 @@
+using MRQ.CryptoBot.Domain.Adapter.PancakeSwap;
 using MRQ.CryptoBot.Domain.Orchestrator;
 
 namespace MRQ.CryptoBot.Client
@@ -22,6 +23,25 @@ namespace MRQ.CryptoBot.Client
             var retorno = await _moralisBalanceOrchestrator?.GetTokenBalance(tokenAdress.Text);
 
             valorToken.Text = retorno.UsdPrice.ToString();
+        }
+
+        private async void button2_Click(object sender, EventArgs e)
+        {
+            WalletDto wallet = new WalletDto
+            {
+                Adress = walletadress.Text,
+                Tokens = new List<TokenDto>
+                {
+                    new TokenDto
+                    {
+                        Adress = tokenAdress.Text
+                    }
+                }
+            };
+
+            await _moralisBalanceOrchestrator?.GetBalanceOfToken(wallet);
+
+            balance.Text = wallet.Tokens.FirstOrDefault().Name + " : " + wallet.Tokens.FirstOrDefault().BalanceBNB;
         }
     }
 }
