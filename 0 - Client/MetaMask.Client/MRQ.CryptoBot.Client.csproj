@@ -19,6 +19,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\1 - Core\MetaMask.Application\MRQ.CryptoBot.Orchestrator.csproj" />
     <ProjectReference Include="..\..\2 - Adapter\MRQ.CryptoBot.Repository\MRQ.CryptoBot.Repository\MRQ.CryptoBot.Repository.csproj" />
+    <ProjectReference Include="..\..\3 - Infra\MetaMask.Infra\MRQ.CryptoBot.Infra.csproj" />
   </ItemGroup>
 
 </Project>
