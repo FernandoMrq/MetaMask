@@ -20,7 +20,7 @@ namespace MRQ.CryptoBot.Integration.Moralis
 
         public async Task<BalanceDto> GetTokenFromMoralis(string token)
         {
-            _httpClient.DefaultRequestHeaders.Clear();
+            _httpClient.DefaultRequestHeaders.Clear(); //TODO acertar os headers
             _httpClient.DefaultRequestHeaders.Add("X-API-Key", "jQWrwqiGwAWFhgQEDMiONpkTDU360LPjJfjvNiTvjDkHaFoF4KXKzgsMc5DSF7hd");
             var response = await _httpClient?.GetAsync(string.Format(IntegrationResource.URL, token));
             if (response == null)
