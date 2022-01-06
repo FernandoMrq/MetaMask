@@ -1,32 +1,40 @@
-﻿using MRQ.CryptoBot.Domain.Adapter.Data;
+﻿using MRQ.CryptoBot.Domain.Adapter.Token;
 using MRQ.CryptoBot.Domain.Adapter.Moralis;
 using System.Text.Json;
+using MRQ.ReturnContent;
 
 namespace MRQ.CryptoBot.Integration.Moralis
 {
-    public class MoralisBalanceAdapter : IMoralisBalanceAdapter
+    public class MoralisTokenPriceAdapter : ITokenPriceAdapter
     {
         private readonly HttpClient? _httpClient;
         private readonly JsonSerializerOptions? _jsonSerializerOptions;
+        private Returned _returned;
 
-        public MoralisBalanceAdapter(HttpClient httpClient)
+        public MoralisTokenPriceAdapter(HttpClient httpClient)
         {
             _httpClient = httpClient;
             _jsonSerializerOptions = new JsonSerializerOptions
             {
                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase
             };
+
+
+            _returned = ReturnedExtension.CreateReturned();
         }
 
-        public async Task<BalanceDto> GetTokenFromMoralis(string token)
+        public async Task<PriceOfToken> GetTokenFromMoralis(string token)
         {
+            _returned.ReturnedState.Message = String.Concat("Inicio Busca Token Price: ", DateTime.Now.ToString());
             _httpClient.DefaultRequestHeaders.Clear(); //TODO acertar os headers
             _httpClient.DefaultRequestHeaders.Add("X-API-Key", "jQWrwqiGwAWFhgQEDMiONpkTDU360LPjJfjvNiTvjDkHaFoF4KXKzgsMc5DSF7hd");
             var response = await _httpClient?.GetAsync(string.Format(IntegrationResource.URL, token));
             if (response == null)
-                return new BalanceDto();
+                return new PriceOfToken();
 
-            BalanceDto balanceDto = JsonSerializer.Deserialize<BalanceDto>(await response.Content.ReadAsStringAsync(), _jsonSerializerOptions);
+            PriceOfToken balanceDto = JsonSerializer.Deserialize<PriceOfToken>(await response.Content.ReadAsStringAsync(), _jsonSerializerOptions);
+
+            _returned.ReturnedState.Message = String.Concat("Fim Busca Token Price: ", DateTime.Now.ToString());
 
             return balanceDto;
         }

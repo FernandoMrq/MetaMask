@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using MRQ.CryptoBot.Business;
 using MRQ.CryptoBot.Domain.Adapter.Data;
+using MRQ.CryptoBot.Domain.Adapter.Token;
 using MRQ.CryptoBot.Domain.Adapter.PancakeSwap;
 using MRQ.CryptoBot.Domain.Business;
 using MRQ.CryptoBot.Domain.Entities.Moralis;
@@ -16,13 +17,13 @@ namespace MRQ.CryptoBot.Client.Configurations
     {
         public static IServiceCollection AddOrchestrator(this IServiceCollection services)
         {
-            services.AddTransient<IMoralisBalanceOrchestrator, MoralisBalanceOrchestrator>();
+            services.AddTransient<ITokenPriceOrchestrator, TokenPriceOrchestrator>();
             return services;
         }
 
         public static IServiceCollection AddBusiness(this IServiceCollection services)
         {
-            services.AddTransient<IMoralisBalanceBusiness, MoralisBalanceBusiness>();
+            services.AddTransient<ITokenPriceBusiness, TokenPriceBusiness>();
             return services;
         }
 
@@ -30,8 +31,8 @@ namespace MRQ.CryptoBot.Client.Configurations
         {
             services.AddTransient<ISQLiteEntityAdapter<Balance>, EntityService<Balance>>();
             services.AddTransient<ISQLiteEntityAdapter<NativePrice>, EntityService<NativePrice>>();
-            services.AddTransient<IMoralisBalanceAdapter, MoralisBalanceAdapter>();
-            services.AddTransient<IPancakeSwapAdapter, PancakeSwapAdapter>();
+            services.AddTransient<ITokenPriceAdapter, MoralisTokenPriceAdapter>();
+            services.AddTransient<IBlockChainOperationAdapter, PancakeSwapAdapter>();
 
             return services;
         }

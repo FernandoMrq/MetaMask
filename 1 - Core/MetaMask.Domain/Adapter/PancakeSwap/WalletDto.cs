@@ -4,6 +4,7 @@
     public class WalletDto
     {
         public string? Adress { get; set; }
+        public string? PrivateKey { get; set; } //TODO adicionar camadas de segurança
         public IEnumerable<TokenDto>? Tokens { get; set; }
     }
 }

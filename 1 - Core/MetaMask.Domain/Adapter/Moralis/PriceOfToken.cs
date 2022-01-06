@@ -1,6 +1,6 @@
 ﻿namespace MRQ.CryptoBot.Domain.Adapter.Moralis
 {
-    public class BalanceDto
+    public class PriceOfToken
     {
         public Decimal UsdPrice { get; set; }
         public string? ExchangeAddress { get; set; }
