@@ -32,7 +32,7 @@ namespace MRQ.CryptoBot.Integration.Nethereum
         //contractAdress, web3Url, contractAbi, adressOfWallet 
         public async Task GetWalletBalanceOfTokenAsync(WalletDto walletDto)
         {
-            _returned.ReturnedState.Message = String.Concat("Inicio GetTokenBalance: ", DateTime.Now.ToString());
+            _returned.ReturnedState.Message = String.Concat("Inicio GetTokenBalance: ", DateTime.Now.ToString("hh.mm.ss.ffffff"));
             //TODO Clean the code
             var web3 = new Web3(ConfigurationDto.Web3Url);
             var balance = await web3.Eth.GetBalance.SendRequestAsync(walletDto.Adress);
@@ -56,12 +56,12 @@ namespace MRQ.CryptoBot.Integration.Nethereum
                 Console.WriteLine("Exception Message: " + ex.Message);
             }
 
-            _returned.ReturnedState.Message = String.Concat("Fim GetTokenBalance: ", DateTime.Now.ToString());
+            _returned.ReturnedState.Message = String.Concat("Fim GetTokenBalance: ", DateTime.Now.ToString("hh.mm.ss.ffffff"));
         }
 
         public async Task<Returned> SwapTokensAsync(WalletDto walletDto, TokenDto tokenOrigin, TokenDto tokenDestination)
         {
-            _returned.ReturnedState.Message = String.Concat("Inicio Swap: ", DateTime.Now.ToString());
+            _returned.ReturnedState.Message = String.Concat("Inicio Swap: ", DateTime.Now.ToString("hh.mm.ss.ffffff"));
             try
             { 
                 var url = ConfigurationDto.Web3Url;
@@ -127,12 +127,12 @@ namespace MRQ.CryptoBot.Integration.Nethereum
 
                 return _returned;
             }
-            _returned.ReturnedState.Message = String.Concat("Fim Swap: ", DateTime.Now.ToString());
+            _returned.ReturnedState.Message = String.Concat("Fim Swap: ", DateTime.Now.ToString("hh.mm.ss.ffffff"));
         }
 
         public async Task<Returned> SendToWalletAsync(WalletDto walletOrigem, WalletDto walletDestino, TokenDto tokenOrigem)
         {
-            _returned.ReturnedState.Message = String.Concat("Inicio SentToWallet: ", DateTime.Now.ToString());
+            _returned.ReturnedState.Message = String.Concat("Inicio SentToWallet: ", DateTime.Now.ToString("hh.mm.ss.ffffff"));
             try
             {
                 var privateKey = walletOrigem.PrivateKey;
@@ -185,7 +185,7 @@ namespace MRQ.CryptoBot.Integration.Nethereum
 
                 return _returned;
             }
-            _returned.ReturnedState.Message = String.Concat("Fim SentToWallet: ", DateTime.Now.ToString());
+            _returned.ReturnedState.Message = String.Concat("Fim SentToWallet: ", DateTime.Now.ToString("hh.mm.ss.ffffff"));
         }
     }
 }

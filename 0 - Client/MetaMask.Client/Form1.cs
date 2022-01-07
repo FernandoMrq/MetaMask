@@ -16,18 +16,20 @@ namespace MRQ.CryptoBot.Client
 
             _returned = ReturnedExtension.CreateReturned();
 
-            _returned.ReturnedState.NewReturnedMessage += new NewReturnedMessageEventHandler(NewMessage);
+            ReturnedState.NewReturnedMessage += new NewReturnedMessageEventHandler(NewMessage);
         }
 
         private void NewMessage(object source, EventArgs e)
         {
             ReturnedState returnedState = (ReturnedState)source;
 
-            consoleMessage.Text = string.Concat(Environment.NewLine, returnedState.Message);
+            consoleMessage.Text += string.Concat(Environment.NewLine, returnedState.Message);
         }
 
         private async void btnTokenPrice_ClickAsync(object sender, EventArgs e)
         {
+            consoleMessage.Clear();
+
             var retorno = await _moralisBalanceOrchestrator?.GetTokenPrice(tokenAdressOrigem.Text);
 
             valorToken.Text = retorno.UsdPrice.ToString();
@@ -35,6 +37,8 @@ namespace MRQ.CryptoBot.Client
 
         private async void btnBalance_Click(object sender, EventArgs e)
         {
+            consoleMessage.Clear();
+
             WalletDto wallet = new WalletDto
             {
                 Adress = walletAdressOrigem.Text,
@@ -54,7 +58,9 @@ namespace MRQ.CryptoBot.Client
 
         private async void btnSwapTokens_Click(object sender, EventArgs e)
         {
-            _returned.ReturnedState.Message = String.Concat("Inicio: ", DateTime.Now.ToString());
+            consoleMessage.Clear();
+
+            _returned.ReturnedState.Message = String.Concat("Inicio: ", DateTime.Now.ToString("hh.mm.ss.ffffff"));
 
             WalletDto wallet = new WalletDto
             {
@@ -85,6 +91,8 @@ namespace MRQ.CryptoBot.Client
 
         private async void btnTransferirParaDestino_Click(object sender, EventArgs e)
         {
+            consoleMessage.Clear();
+
             WalletDto walletOrigem = new WalletDto
             {
                 Adress = walletAdressOrigem.Text,
