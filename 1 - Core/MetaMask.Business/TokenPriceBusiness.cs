@@ -25,7 +25,7 @@ namespace MRQ.CryptoBot.Business
             return _pancakeSwapAdapter.GetWalletBalanceOfTokenAsync(walletDto, tokenDto);
         }
 
-        public async Task<PriceOfToken> GetTokenPrice(string token)
+        public async Task<PriceOfTokenDto> GetTokenPrice(string token)
         {
             return await _moralisBalanceAdapter.GetTokenFromMoralis(token);
         }

@@ -4,6 +4,6 @@ namespace MRQ.CryptoBot.Domain.Adapter.Token
 {
     public interface ITokenPriceAdapter
     {
-        public Task<PriceOfToken> GetTokenFromMoralis(string token);
+        public Task<PriceOfTokenDto> GetTokenFromMoralis(string token);
     }
 }

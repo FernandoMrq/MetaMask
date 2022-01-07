@@ -20,7 +20,7 @@ namespace MRQ.CryptoBot.Orchestrator
             return _tokenPriceBusiness.GetWalletBalanceOfToken(walletDto, tokenDto);
         }
 
-        public async Task<PriceOfToken> GetTokenPrice(string token)
+        public async Task<PriceOfTokenDto> GetTokenPrice(string token)
         {
             return await _tokenPriceBusiness.GetTokenPrice(token);
         }
