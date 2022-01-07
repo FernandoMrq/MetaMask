@@ -25,7 +25,7 @@ namespace MRQ.CryptoBot.Integration.Moralis
 
         public async Task<PriceOfToken> GetTokenFromMoralis(string token)
         {
-            _returned.ReturnedState.Message = String.Concat("Inicio Busca Token Price: ", DateTime.Now.ToString("hh.mm.ss.ffffff"));
+            _returned.ReturnedState.Message = "MoralisTokenPriceAdapter - Inicio Busca Token Price";
             _httpClient.DefaultRequestHeaders.Clear(); //TODO acertar os headers
             _httpClient.DefaultRequestHeaders.Add("X-API-Key", "jQWrwqiGwAWFhgQEDMiONpkTDU360LPjJfjvNiTvjDkHaFoF4KXKzgsMc5DSF7hd");
             var response = await _httpClient?.GetAsync(string.Format(IntegrationResource.URL, token));
@@ -34,7 +34,7 @@ namespace MRQ.CryptoBot.Integration.Moralis
 
             PriceOfToken balanceDto = JsonSerializer.Deserialize<PriceOfToken>(await response.Content.ReadAsStringAsync(), _jsonSerializerOptions);
 
-            _returned.ReturnedState.Message = String.Concat("Fim Busca Token Price: ", DateTime.Now.ToString("hh.mm.ss.ffffff"));
+            _returned.ReturnedState.Message = "MoralisTokenPriceAdapter - Fim Busca Token Price";
 
             return balanceDto;
         }

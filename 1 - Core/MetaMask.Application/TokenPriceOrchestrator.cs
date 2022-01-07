@@ -15,9 +15,9 @@ namespace MRQ.CryptoBot.Orchestrator
             _tokenPriceBusiness = moralisBalanceBusiness;
         }
 
-        public Task GetWalletBalanceOfToken(WalletDto walletDto)
+        public Task GetWalletBalanceOfToken(WalletDto walletDto, TokenDto tokenDto)
         {
-            return _tokenPriceBusiness.GetWalletBalanceOfToken(walletDto);
+            return _tokenPriceBusiness.GetWalletBalanceOfToken(walletDto, tokenDto);
         }
 
         public async Task<PriceOfToken> GetTokenPrice(string token)

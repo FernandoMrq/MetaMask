@@ -5,6 +5,6 @@
     {
         public string? Adress { get; set; }
         public string? PrivateKey { get; set; } //TODO adicionar camadas de segurança
-        public IEnumerable<TokenDto>? Tokens { get; set; }
+        //public IEnumerable<TokenDto>? Tokens { get; set; }
     }
 }

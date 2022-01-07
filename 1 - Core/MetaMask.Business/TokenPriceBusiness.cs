@@ -20,9 +20,9 @@ namespace MRQ.CryptoBot.Business
             _returned = ReturnedExtension.CreateReturned();
         }
 
-        public Task GetWalletBalanceOfToken(WalletDto walletDto)
+        public Task GetWalletBalanceOfToken(WalletDto walletDto, TokenDto tokenDto)
         {
-            return _pancakeSwapAdapter.GetWalletBalanceOfTokenAsync(walletDto);
+            return _pancakeSwapAdapter.GetWalletBalanceOfTokenAsync(walletDto, tokenDto);
         }
 
         public async Task<PriceOfToken> GetTokenPrice(string token)
@@ -38,7 +38,7 @@ namespace MRQ.CryptoBot.Business
             var tokenDestinationPrice = await GetTokenPrice(tokenDestination.Adress);
 
             if (walletDto.Tokens.FirstOrDefault().Balance < tokenOrigin.Balance)
-                _returned.ReturnedState.Message = "Quantidade origem menor que o valor real";
+                _returned.ReturnedState.Message = "TokenPriceBusiness - Quantidade origem menor que o valor real";
 
             tokenDestination.Balance = ((tokenOriginPrice.UsdPrice * tokenOrigin.Balance) / tokenDestinationPrice.UsdPrice);
 

@@ -11,7 +11,8 @@ namespace MRQ.CryptoBot.Integration.Nethereum
 {
     public class PancakeSwapAdapter : IBlockChainOperationAdapter
     {
-        private Returned _returned;
+        private readonly Returned _returned;
+        //TODO Clean the code
 
         public PancakeSwapAdapter()
         {
@@ -27,41 +28,49 @@ namespace MRQ.CryptoBot.Integration.Nethereum
             _returned = ReturnedExtension.CreateReturned();
         }
 
+        private void InsertLogMessage(string message, bool messageToRelease = false)
+        {
+            if (_returned.ReturnedState != null) {
+                _returned.ReturnedState.MessageToRelease = messageToRelease;
+                _returned.ReturnedState.Message = message;
+            }
+        }
 
+        private void AlterReturnedState(State state)
+        {
+            if (_returned.ReturnedState != null)
+                _returned.ReturnedState.State = state;
+        }
 
         //contractAdress, web3Url, contractAbi, adressOfWallet 
-        public async Task GetWalletBalanceOfTokenAsync(WalletDto walletDto)
+        public async Task GetWalletBalanceOfTokenAsync(WalletDto walletDto, TokenBaseDto tokenDto)
         {
-            _returned.ReturnedState.Message = String.Concat("Inicio GetTokenBalance: ", DateTime.Now.ToString("hh.mm.ss.ffffff"));
-            //TODO Clean the code
+            InsertLogMessage("PancakeSwapAdapter - Inicio GetTokenBalance");
+
             var web3 = new Web3(ConfigurationDto.Web3Url);
-            var balance = await web3.Eth.GetBalance.SendRequestAsync(walletDto.Adress);
-            var etherAmount = Web3.Convert.FromWei(balance.Value);
 
             try
             {
+                var contract = web3.Eth.GetContract(ConfigurationDto.ContractABI, tokenDto.Adress);
+                var balanceFunctionFromAbi = contract.GetFunction("balanceOf");
+                var nameFunctionFromAbi = await contract.GetFunction("name").CallAsync<string>();
+                var balance = await balanceFunctionFromAbi.CallAsync<BigInteger>(walletDto.Adress);
 
-                var contract4 = web3.Eth.GetContract(ConfigurationDto.ContractABI, walletDto.Tokens.FirstOrDefault().Adress);
-                var balanceFunction = contract4.GetFunction("balanceOf");
-                var nameFunction = await contract4.GetFunction("name").CallAsync<string>();
-                var balance4 = await balanceFunction.CallAsync<BigInteger>(walletDto.Adress);
-                walletDto.Tokens.FirstOrDefault().BalanceWei = decimal.Parse(balance4.ToString());
-                walletDto.Tokens.FirstOrDefault().Balance = Web3.Convert.FromWei(balance4);
-                walletDto.Tokens.FirstOrDefault().Name = nameFunction;
-
-                //Console.WriteLine(nameFunction + ": " + Web3.Convert.FromWei(balance4));//Nos muestra el balance del token $Cake en la Wallet consultada
+                tokenDto.BalanceWei = decimal.Parse(balance.ToString());
+                tokenDto.Balance = Web3.Convert.FromWei(balance);
+                tokenDto.Name = nameFunctionFromAbi;
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Exception Message: " + ex.Message);
+                InsertLogMessage(string.Format("**PancakeSwapAdapter** Error: ", ex.Message), true);
             }
 
-            _returned.ReturnedState.Message = String.Concat("Fim GetTokenBalance: ", DateTime.Now.ToString("hh.mm.ss.ffffff"));
+            InsertLogMessage("PancakeSwapAdapter - Fim GetTokenBalance");
         }
 
         public async Task<Returned> SwapTokensAsync(WalletDto walletDto, TokenDto tokenOrigin, TokenDto tokenDestination)
         {
-            _returned.ReturnedState.Message = String.Concat("Inicio Swap: ", DateTime.Now.ToString("hh.mm.ss.ffffff"));
+            InsertLogMessage("PancakeSwapAdapter - Inicio Swap");
             try
             { 
                 var url = ConfigurationDto.Web3Url;
@@ -78,7 +87,7 @@ namespace MRQ.CryptoBot.Integration.Nethereum
                 var camtidadBUSD = Web3.Convert.ToWei(tokenDestination.Balance);
                 var camtidadToken = Web3.Convert.ToWei(tokenDestination.Balance * ConfigurationDto.SlippageTolerance);
 
-                string tokens = "";
+                //string tokens = "";
 
 
                 //tokens = string.Concat(tokens,",", ConfigurationDto.ToakenDefaultCOntract);
@@ -110,29 +119,30 @@ namespace MRQ.CryptoBot.Integration.Nethereum
 
                 //TODO observar o artigo https://fenixbb.com/bot-de-trading-para-binance-smart-chain-bsc-usando-c-parte-2/ e colocar as demais formas de fazer o swap, inclusive as que precisam de taxa.
 
-
+                InsertLogMessage("PancakeSwapAdapter - Manda Requisição BlockChain");
                 var transactionSwapReceipt = await swapHandler.SendRequestAndWaitForReceiptAsync(contractAddress, swapDTO);
+                InsertLogMessage("PancakeSwapAdapter - Fim Requisição BlockChain");
 
-                _returned.ReturnedState.Message = String.Format("Transaction hash: {0}", transactionSwapReceipt.TransactionHash);
-
+                InsertLogMessage(String.Format("PancakeSwapAdapter - Transaction hash: {0}", transactionSwapReceipt.TransactionHash), true);
                 //TODO criar objeto para operação, contendo hash da operação e outros detalhes da mesma
 
-                _returned.ReturnedState.State = State.OK;
+                AlterReturnedState(State.OK);
 
-                return _returned; //TODO preencher returned
+                //TODO preencher returned
             }
             catch (Exception ex)
             {
-                _returned.ReturnedState.Message = string.Format("Error: ", ex.Message);
+                InsertLogMessage(string.Format("**PancakeSwapAdapter** Error: ", ex.Message), true);
 
-                return _returned;
             }
-            _returned.ReturnedState.Message = String.Concat("Fim Swap: ", DateTime.Now.ToString("hh.mm.ss.ffffff"));
+
+            InsertLogMessage("PancakeSwapAdapter - Fim Swap");
+            return _returned;
         }
 
         public async Task<Returned> SendToWalletAsync(WalletDto walletOrigem, WalletDto walletDestino, TokenDto tokenOrigem)
         {
-            _returned.ReturnedState.Message = String.Concat("Inicio SentToWallet: ", DateTime.Now.ToString("hh.mm.ss.ffffff"));
+            InsertLogMessage("PancakeSwapAdapter - Inicio SentToWallet");
             try
             {
                 var privateKey = walletOrigem.PrivateKey;
@@ -174,18 +184,16 @@ namespace MRQ.CryptoBot.Integration.Nethereum
 
                 var txnHash2 = await transactionManager.SendTransactionAsync(txnInput2);
 
-                _returned.ReturnedState.Message = txnHash2;
-
-                return _returned;
+                InsertLogMessage(String.Concat("PancakeSwapAdapter - Hash: ", txnHash2));
             }
             catch (Exception ex)
             {
-                //Console.WriteLine("Exception Message: " + ex.Message);
-                _returned.ReturnedState.Message = string.Format("Error: ", ex.Message);
+                InsertLogMessage(string.Format("**PancakeSwapAdapter** Error: ", ex.Message), true);
 
-                return _returned;
             }
-            _returned.ReturnedState.Message = String.Concat("Fim SentToWallet: ", DateTime.Now.ToString("hh.mm.ss.ffffff"));
+
+            InsertLogMessage("PancakeSwapAdapter - Fim SentToWallet");
+            return _returned;
         }
     }
 }
