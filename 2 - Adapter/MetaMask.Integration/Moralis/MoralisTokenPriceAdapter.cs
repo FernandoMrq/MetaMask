@@ -28,7 +28,7 @@ namespace MRQ.CryptoBot.Integration.Moralis
             _returned.ReturnedState.Message = "MoralisTokenPriceAdapter - Inicio Busca Token Price";
             _httpClient.DefaultRequestHeaders.Clear(); //TODO acertar os headers
             _httpClient.DefaultRequestHeaders.Add("X-API-Key", "jQWrwqiGwAWFhgQEDMiONpkTDU360LPjJfjvNiTvjDkHaFoF4KXKzgsMc5DSF7hd");
-            var response = await _httpClient?.GetAsync(string.Format(IntegrationResource.URL, token));
+            var response = await _httpClient?.GetAsync(string.Format(IntegrationResource.PathPrice, token, ChainType.bsc));
             if (response == null)
                 return new PriceOfTokenDto();
 

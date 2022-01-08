@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MRQ.CryptoBot.Integration {
+namespace MRQ.CryptoBot.Infra {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace MRQ.CryptoBot.Integration {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class IntegrationResource {
+    internal class InfraResource {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal IntegrationResource() {
+        internal InfraResource() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace MRQ.CryptoBot.Integration {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MRQ.CryptoBot.Integration.IntegrationResource", typeof(IntegrationResource).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MRQ.CryptoBot.Infra.InfraResource", typeof(InfraResource).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,38 +61,11 @@ namespace MRQ.CryptoBot.Integration {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0}/price?chain={1}.
+        ///   Looks up a localized string similar to https://deep-index.moralis.io/api/v2/.
         /// </summary>
-        internal static string PathPrice {
+        internal static string MoralisBaseUrl {
             get {
-                return ResourceManager.GetString("PathPrice", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to transaction/{0}?chain={1}.
-        /// </summary>
-        internal static string PathTransactionState {
-            get {
-                return ResourceManager.GetString("PathTransactionState", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to {0}/erc20?chain={1}.
-        /// </summary>
-        internal static string PathWalletBalance {
-            get {
-                return ResourceManager.GetString("PathWalletBalance", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to {0}/balance?chain={1}.
-        /// </summary>
-        internal static string PathWalletBalanceDefault {
-            get {
-                return ResourceManager.GetString("PathWalletBalanceDefault", resourceCulture);
+                return ResourceManager.GetString("MoralisBaseUrl", resourceCulture);
             }
         }
     }

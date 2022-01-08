@@ -9,8 +9,8 @@ namespace MRQ.CryptoBot.Infra
         public static IServiceCollection AddExternalServices(this IServiceCollection services)
         {
             //TODO trazer IConfiguration.
-            //TODO colocar baseadress da URL aqui 
-            services.AddHttpClient<ITokenPriceAdapter, MoralisTokenPriceAdapter>();
+            services.AddHttpClient<ITokenPriceAdapter, MoralisTokenPriceAdapter>()
+                .ConfigureHttpClient(req => req.BaseAddress = new Uri(InfraResource.MoralisBaseUrl));
 
             return services;
         }

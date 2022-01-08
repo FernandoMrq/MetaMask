@@ -16,4 +16,19 @@
     <ProjectReference Include="..\..\2 - Adapter\MetaMask.Integration\MRQ.CryptoBot.Integration.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="InfraResource.Designer.cs">
+      <DependentUpon>InfraResource.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="InfraResource.resx">
+      <LastGenOutput>InfraResource.Designer.cs</LastGenOutput>
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
 </Project>
