@@ -1,5 +1,4 @@
-﻿using MRQ.CryptoBot.Domain.Adapter.Moralis;
-using MRQ.CryptoBot.Domain.Adapter.PancakeSwap;
+﻿using MRQ.CryptoBot.Domain.Adapter.PancakeSwap;
 using MRQ.CryptoBot.Domain.Business;
 using MRQ.CryptoBot.Domain.Orchestrator;
 using MRQ.ReturnContent;
@@ -20,9 +19,9 @@ namespace MRQ.CryptoBot.Orchestrator
             return _tokenPriceBusiness.GetWalletBalanceOfToken(walletDto, tokenDto);
         }
 
-        public async Task<PriceOfTokenDto> GetTokenPrice(string token)
+        public async Task<Returned> GetTokenPrice(TokenDto tokenDtoOrigin)
         {
-            return await _tokenPriceBusiness.GetTokenPrice(token);
+            return await _tokenPriceBusiness.GetTokenPrice(tokenDtoOrigin);
         }
 
         public async Task<Returned> SwapTokensAsync(WalletDto walletDto, TokenDto tokenOrigin, TokenDto tokenDestination)

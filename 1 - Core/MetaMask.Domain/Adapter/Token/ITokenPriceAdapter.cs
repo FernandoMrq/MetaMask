@@ -1,9 +1,10 @@
-﻿using MRQ.CryptoBot.Domain.Adapter.Moralis;
+﻿using MRQ.CryptoBot.Domain.Adapter.PancakeSwap;
+using MRQ.ReturnContent;
 
 namespace MRQ.CryptoBot.Domain.Adapter.Token
 {
     public interface ITokenPriceAdapter
     {
-        public Task<PriceOfTokenDto> GetTokenFromMoralis(string token);
+        public Task<Returned> GetTokenFromMoralis(TokenDto tokenDtoOrigin);
     }
 }

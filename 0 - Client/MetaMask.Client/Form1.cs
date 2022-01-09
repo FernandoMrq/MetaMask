@@ -1,3 +1,4 @@
+using MRQ.CryptoBot.Domain.Adapter.Moralis;
 using MRQ.CryptoBot.Domain.Adapter.PancakeSwap;
 using MRQ.CryptoBot.Domain.Orchestrator;
 using MRQ.ReturnContent;
@@ -6,13 +7,30 @@ namespace MRQ.CryptoBot.Client
 {
     public partial class Form1 : Form
     {
+        private readonly Returned _returned;
         private readonly ITokenPriceOrchestrator? _moralisBalanceOrchestrator;
-        private Returned _returned;
-        private WalletDto _walletDtoOrigin;
-        private WalletDto _walletDtoDestination;
-        private TokenDto _tokenDtoOrigin;
-        private TokenDto _tokenDtoDestination;
+        private readonly WalletDto _walletDtoOrigin;
+        private readonly WalletDto _walletDtoDestination;
+        private readonly TokenDto _tokenDtoOrigin;
+        private readonly TokenDto _tokenDtoDestination;
 
+        public Form1()
+        {
+            _moralisBalanceOrchestrator = Program.ServiceProvider?.GetService(typeof(ITokenPriceOrchestrator)) as ITokenPriceOrchestrator;
+
+            _walletDtoOrigin = new WalletDto();
+            _walletDtoDestination = new WalletDto();
+
+            _tokenDtoOrigin = new TokenDto();
+            _tokenDtoDestination = new TokenDto();
+
+            _returned = ReturnedExtension.CreateReturned();
+
+            InicializeReturned();
+            InitializeComponent();
+        }
+
+        /*
         private void InicializeWalletDto(WalletDto walletDto)
         {
             if (walletDto == null)
@@ -25,16 +43,7 @@ namespace MRQ.CryptoBot.Client
                 tokenDto = new TokenDto();
         }
 
-        private void InicializeReturned(Returned returned)
-        {
-            if (returned == null)
-            {
-                returned = ReturnedExtension.CreateReturned();
-
-                ReturnedState.NewReturnedMessage += new NewReturnedMessageEventHandler(NewMessage);
-            }
-        }
-
+        
         private void InicializeObjects()
         {
             InicializeTokenDto(_tokenDtoOrigin);
@@ -44,22 +53,23 @@ namespace MRQ.CryptoBot.Client
             InicializeReturned(_returned);
         }
 
+        */
+
+        private void InicializeReturned()
+        {
+            ReturnedState.NewReturnedMessage += new NewReturnedMessageEventHandler(NewMessage);
+        }
+
         private void FillObjectsFromForm()
         {
             _walletDtoOrigin.Adress = walletAdressOrigem.Text;
+            _walletDtoOrigin.PrivateKey = privateKeyOrigem.Text;
 
             _walletDtoDestination.Adress = walletAdressDestino.Text;
 
             _tokenDtoOrigin.Adress = tokenAdressOrigem.Text;
 
             _tokenDtoDestination.Adress = tokenAdressDestino.Text;
-        }
-
-        public Form1()
-        {
-            _moralisBalanceOrchestrator = Program.ServiceProvider?.GetService(typeof(ITokenPriceOrchestrator)) as ITokenPriceOrchestrator;
-            InitializeComponent();
-            InicializeObjects();
         }
 
         private void NewMessage(object source, EventArgs e)
@@ -77,8 +87,17 @@ namespace MRQ.CryptoBot.Client
         private async void btnTokenPrice_ClickAsync(object sender, EventArgs e)
         {
             consoleMessage.Clear();
+            FillObjectsFromForm();
 
-            var retorno = await _moralisBalanceOrchestrator?.GetTokenPrice(tokenAdressOrigem.Text);
+            PriceOfTokenDto retorno;
+
+            if (_moralisBalanceOrchestrator is null)
+                return;
+
+            if (_tokenDtoOrigin.Adress is null)
+                return;
+
+            retorno = (PriceOfTokenDto)(await _moralisBalanceOrchestrator.GetTokenPrice(_tokenDtoOrigin)).Object;
 
             valorToken.Text = retorno.UsdPrice.ToString();
         }
@@ -88,88 +107,34 @@ namespace MRQ.CryptoBot.Client
             consoleMessage.Clear();
             FillObjectsFromForm();
 
-            WalletDto wallet = new WalletDto
-            {
-                Adress = walletAdressOrigem.Text,
-                Tokens = new List<TokenDto>
-                {
-                    new TokenDto
-                    {
-                        Adress = tokenAdressOrigem.Text
-                    }
-                }
-            };
+            if (_moralisBalanceOrchestrator is null)
+                return;
 
-            await _moralisBalanceOrchestrator?.GetWalletBalanceOfToken(wallet);
+            await _moralisBalanceOrchestrator.GetWalletBalanceOfToken(_walletDtoOrigin, _tokenDtoOrigin);
 
-            balance.Text = wallet.Tokens.FirstOrDefault().Name + " : " + wallet.Tokens.FirstOrDefault().Balance;
+            balance.Text = _tokenDtoOrigin.Name + " : " + _tokenDtoOrigin.Balance;
         }
 
         private async void btnSwapTokens_Click(object sender, EventArgs e)
         {
             consoleMessage.Clear();
+            FillObjectsFromForm();
 
-            _returned.ReturnedState.Message = "Form - Inicio";
+            await _moralisBalanceOrchestrator?.SwapTokensAsync(_walletDtoOrigin, _tokenDtoOrigin, _tokenDtoDestination);
 
-            WalletDto wallet = new WalletDto
-            {
-                Adress = walletAdressOrigem.Text,
-                Tokens = new List<TokenDto>
-                {
-                    new TokenDto
-                    {
-                        Adress = tokenAdressOrigem.Text
-                    }
-                },
-                PrivateKey = privateKeyOrigem.Text
-            };
-
-            TokenDto tokenDtoOrigem = new TokenDto
-            {
-                Adress = tokenAdressOrigem.Text,
-                Balance = decimal.Parse(quantidadeOrigem.Text)
-            };
-
-            TokenDto tokenDestino = new TokenDto
-            {
-                Adress = tokenAdressDestino.Text
-            };
-
-            await _moralisBalanceOrchestrator?.SwapTokensAsync(wallet, tokenDtoOrigem, tokenDestino);
-
-            _returned.ReturnedState.Message = "Form - Fim";
+            ReturnedExtension.InsertLogMessage(_returned, "Form - Fim");
         }
 
         private async void btnTransferirParaDestino_Click(object sender, EventArgs e)
         {
             consoleMessage.Clear();
-            _returned.ReturnedState.Message = "Form - Inicio";
+            FillObjectsFromForm();
 
-            WalletDto walletOrigem = new WalletDto
-            {
-                Adress = walletAdressOrigem.Text,
-                Tokens = new List<TokenDto>
-                {
-                    new TokenDto
-                    {
-                        Adress = tokenAdressOrigem.Text
-                    }
-                }
-            };
+            ReturnedExtension.InsertLogMessage(_returned, "Form - Inicio");
 
-            WalletDto walletDestino = new WalletDto
-            {
-                Adress = walletAdressDestino.Text
-            };
+            await _moralisBalanceOrchestrator?.SendToWalletAsync(_walletDtoOrigin, _walletDtoDestination, _tokenDtoOrigin);
 
-            TokenDto tokenDtoOrigem = new TokenDto
-            {
-                Adress = tokenAdressOrigem.Text,
-                Balance = decimal.Parse(quantidadeOrigem.Text)
-            };
-
-            await _moralisBalanceOrchestrator?.SendToWalletAsync(walletOrigem, walletDestino, tokenDtoOrigem);
-            _returned.ReturnedState.Message = "Form - Fim";
+            ReturnedExtension.InsertLogMessage(_returned, "Form - Fim");
         }
     }
 }

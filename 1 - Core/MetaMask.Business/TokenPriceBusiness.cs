@@ -1,6 +1,6 @@
-﻿using MRQ.CryptoBot.Domain.Adapter.Token;
-using MRQ.CryptoBot.Domain.Adapter.Moralis;
+﻿using MRQ.CryptoBot.Domain.Adapter.Moralis;
 using MRQ.CryptoBot.Domain.Adapter.PancakeSwap;
+using MRQ.CryptoBot.Domain.Adapter.Token;
 using MRQ.CryptoBot.Domain.Business;
 using MRQ.ReturnContent;
 
@@ -25,20 +25,20 @@ namespace MRQ.CryptoBot.Business
             return _pancakeSwapAdapter.GetWalletBalanceOfTokenAsync(walletDto, tokenDto);
         }
 
-        public async Task<PriceOfTokenDto> GetTokenPrice(string token)
+        public async Task<Returned> GetTokenPrice(TokenDto tokenDtoOrigin)
         {
-            return await _moralisBalanceAdapter.GetTokenFromMoralis(token);
+            return await _moralisBalanceAdapter.GetTokenFromMoralis(tokenDtoOrigin);
         }
 
         public async Task<Returned> SwapTokensAsync(WalletDto walletDto, TokenDto tokenOrigin, TokenDto tokenDestination)
         {
             //TODO Acertar validações
-            await GetWalletBalanceOfToken(walletDto);
-            var tokenOriginPrice = await GetTokenPrice(tokenOrigin.Adress);
-            var tokenDestinationPrice = await GetTokenPrice(tokenDestination.Adress);
+            await GetWalletBalanceOfToken(walletDto, tokenOrigin);
+            var tokenOriginPrice = (PriceOfTokenDto)(await GetTokenPrice(tokenOrigin)).Object;
+            var tokenDestinationPrice = (PriceOfTokenDto)(await GetTokenPrice(tokenDestination)).Object;
 
-            if (walletDto.Tokens.FirstOrDefault().Balance < tokenOrigin.Balance)
-                _returned.ReturnedState.Message = "TokenPriceBusiness - Quantidade origem menor que o valor real";
+            if (tokenOrigin.Balance < tokenOrigin.Balance)
+                _returned.InsertLogMessage("TokenPriceBusiness - Quantidade origem menor que o valor real", true);
 
             tokenDestination.Balance = ((tokenOriginPrice.UsdPrice * tokenOrigin.Balance) / tokenDestinationPrice.UsdPrice);
 

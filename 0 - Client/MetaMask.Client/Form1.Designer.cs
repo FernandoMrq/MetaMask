@@ -112,7 +112,6 @@
             this.consoleMessage.Name = "consoleMessage";
             this.consoleMessage.Size = new System.Drawing.Size(776, 133);
             this.consoleMessage.TabIndex = 7;
-            this.consoleMessage.Text = "Console log:";
             // 
             // lblTokenOrigem
             // 

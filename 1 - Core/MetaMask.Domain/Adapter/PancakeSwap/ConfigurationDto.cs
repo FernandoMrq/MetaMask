@@ -16,4 +16,3 @@ namespace MRQ.CryptoBot.Domain.Adapter.PancakeSwap
         public static int TimeBetweenWalletBalanceUpdate { get; set; }
     }
 }
-.
