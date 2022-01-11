@@ -1,5 +1,6 @@
 ﻿namespace MRQ.CryptoBot.Domain.Adapter.Moralis
 {
+    //TODO acertar de snake_case para CamelCase
     public class TransactionDetailsDto
     {
         public string? hash { get; set; }

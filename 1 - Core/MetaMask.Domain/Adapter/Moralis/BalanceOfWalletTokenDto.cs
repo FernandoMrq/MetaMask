@@ -2,6 +2,7 @@
 {
     public class BalanceOfWalletTokenDto
     {
+        //TODO acertar de snake_case para CamelCase
         public string? token_address { get; set; }
         public string? name { get; set; }
         public string? symbol { get; set; }

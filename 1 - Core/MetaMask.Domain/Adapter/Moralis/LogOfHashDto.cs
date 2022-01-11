@@ -2,6 +2,7 @@
 {
     public class LogOfHashDto
     {
+        //TODO acertar de snake_case para CamelCase
         public string? log_index { get; set; }
         public string? transaction_hash { get; set; }
         public string? transaction_index { get; set; }
