@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="MoralisBaseUrl" xml:space="preserve">
-    <value>https://deep-index.moralis.io/api/v2/erc20/</value>
+    <value>https://deep-index.moralis.io/api/v2/</value>
     <comment>Base url for Moralis API</comment>
   </data>
 </root>

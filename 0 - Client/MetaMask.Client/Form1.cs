@@ -99,6 +99,10 @@ namespace MRQ.CryptoBot.Client
 
             retorno = (PriceOfTokenDto)(await _moralisBalanceOrchestrator.GetTokenPrice(_tokenDtoOrigin)).Object;
 
+            await _moralisBalanceOrchestrator.GetWalletBalanceDefault(_walletDtoOrigin);
+            await _moralisBalanceOrchestrator.GetWalletBalance(_walletDtoOrigin);
+            await _moralisBalanceOrchestrator.GetTransactionDetails("0x34a234638b0cbf184b6985cf0db2ac3a5b6522b6c9636a746a651c727fb219ab");
+
             valorToken.Text = retorno.UsdPrice.ToString();
         }
 

@@ -33,5 +33,20 @@ namespace MRQ.CryptoBot.Orchestrator
         {
             return await _tokenPriceBusiness.SendToWalletAsync(walletOrigem, walletDestino, tokenOrigem);
         }
+
+        public async Task<Returned> GetWalletBalanceDefault(WalletDto wallet)
+        {
+            return await _tokenPriceBusiness.GetWalletBalanceDefault(wallet);
+        }
+
+        public async Task<Returned> GetWalletBalance(WalletDto wallet)
+        {
+            return await _tokenPriceBusiness.GetWalletBalance(wallet);
+        }
+
+        public async Task<Returned> GetTransactionDetails(string hashTransaction)
+        {
+            return await _tokenPriceBusiness.GetTransactionDetails(hashTransaction);
+        }
     }
 }

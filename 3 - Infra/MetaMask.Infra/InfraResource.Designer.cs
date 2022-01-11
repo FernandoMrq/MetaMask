@@ -61,7 +61,7 @@ namespace MRQ.CryptoBot.Infra {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://deep-index.moralis.io/api/v2/erc20/.
+        ///   Looks up a localized string similar to https://deep-index.moralis.io/api/v2/.
         /// </summary>
         internal static string MoralisBaseUrl {
             get {

@@ -61,7 +61,7 @@ namespace MRQ.CryptoBot.Integration {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0}/price?chain={1}.
+        ///   Looks up a localized string similar to erc20/{0}/price?chain={1}.
         /// </summary>
         internal static string PathPrice {
             get {

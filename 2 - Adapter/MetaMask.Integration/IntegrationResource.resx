@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="PathPrice" xml:space="preserve">
-    <value>{0}/price?chain={1}</value>
+    <value>erc20/{0}/price?chain={1}</value>
     <comment>Path to get price of token, {0} = Token Adress, {1} = BlockChain Type</comment>
   </data>
   <data name="PathTransactionState" xml:space="preserve">

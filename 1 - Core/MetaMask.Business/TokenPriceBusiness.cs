@@ -49,5 +49,20 @@ namespace MRQ.CryptoBot.Business
         {
             return await _pancakeSwapAdapter.SendToWalletAsync(walletOrigem, walletDestino, tokenOrigem);
         }
+
+        public async Task<Returned> GetWalletBalanceDefault(WalletDto wallet)
+        {
+            return await _moralisBalanceAdapter.GetWalletBalanceDefault(wallet);
+        }
+
+        public async Task<Returned> GetWalletBalance(WalletDto wallet)
+        {
+            return await _moralisBalanceAdapter.GetWalletBalance(wallet);
+        }
+
+        public async Task<Returned> GetTransactionDetails(string hashTransaction)
+        {
+            return await _moralisBalanceAdapter.GetTransactionDetails(hashTransaction);
+        }
     }
 }
