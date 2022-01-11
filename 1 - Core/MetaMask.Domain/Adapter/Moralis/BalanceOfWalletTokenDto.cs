@@ -2,12 +2,12 @@
 {
     public class BalanceOfWalletTokenDto
     {
-        public string? TokenAddress { get; set; }
-        public string? Name { get; set; }
-        public string? Symbol { get; set; }
-        public object? Logo { get; set; }
-        public object? Thumbnail { get; set; }
-        public string? Decimals { get; set; }
-        public string? Balance { get; set; }
+        public string? token_address { get; set; }
+        public string? name { get; set; }
+        public string? symbol { get; set; }
+        public object? logo { get; set; }
+        public object? thumbnail { get; set; }
+        public string? decimals { get; set; }
+        public string? balance { get; set; }
     }
 }

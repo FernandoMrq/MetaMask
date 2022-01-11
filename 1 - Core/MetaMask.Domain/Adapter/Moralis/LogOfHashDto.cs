@@ -2,17 +2,17 @@
 {
     public class LogOfHashDto
     {
-        public string? LogIndex { get; set; }
-        public string? TransactionHash { get; set; }
-        public string? TransactionIndex { get; set; }
-        public string? Address { get; set; }
-        public string? Data { get; set; }
-        public string? Topic0 { get; set; }
-        public string? Topic1 { get; set; }
-        public string? Topic2 { get; set; }
-        public object? Topic3 { get; set; }
-        public DateTime? BlockTimestamp { get; set; }
-        public string? BlockNumber { get; set; }
-        public string? BlockHash { get; set; }
+        public string? log_index { get; set; }
+        public string? transaction_hash { get; set; }
+        public string? transaction_index { get; set; }
+        public string? address { get; set; }
+        public string? data { get; set; }
+        public string? topic0 { get; set; }
+        public string? topic1 { get; set; }
+        public string? topic2 { get; set; }
+        public object? topic3 { get; set; }
+        public DateTime? block_timestamp { get; set; }
+        public string? block_number { get; set; }
+        public string? block_hash { get; set; }
     }
 }

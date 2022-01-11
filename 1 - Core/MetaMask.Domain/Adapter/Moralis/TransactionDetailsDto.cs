@@ -2,23 +2,23 @@
 {
     public class TransactionDetailsDto
     {
-        public string? Hash { get; set; }
-        public string? Nonce { get; set; }
-        public string? TransactionIndex { get; set; }
-        public string? FromAddress { get; set; }
-        public string? ToAddress { get; set; }
-        public string? Value { get; set; }
-        public string? Gas { get; set; }
-        public string? GasPrice { get; set; }
-        public string? Input { get; set; }
-        public string? ReceiptCumulativeGasUsed { get; set; }
-        public string? ReceiptGasUsed { get; set; }
-        public object? ReceiptContractAddress { get; set; }
-        public object? ReceiptRoot { get; set; }
-        public string? ReceiptStatus { get; set; }
-        public DateTime? BlockTimestamp { get; set; }
-        public string? BlockNumber { get; set; }
-        public string? BlockHash { get; set; }
-        public List<LogOfHashDto>? Logs { get; set; }
+        public string? hash { get; set; }
+        public string? nonce { get; set; }
+        public string? transaction_index { get; set; }
+        public string? from_address { get; set; }
+        public string? to_address { get; set; }
+        public string? value { get; set; }
+        public string? gas { get; set; }
+        public string? gas_price { get; set; }
+        public string? input { get; set; }
+        public string? receipt_cumulative_gas_used { get; set; }
+        public string? receipt_gas_used { get; set; }
+        public object? receipt_contract_address { get; set; }
+        public object? receipt_root { get; set; }
+        public string? receipt_status { get; set; }
+        public DateTime? block_timestamp { get; set; }
+        public string? block_number { get; set; }
+        public string? block_hash { get; set; }
+        public List<LogOfHashDto>? logs { get; set; }
     }
 }
