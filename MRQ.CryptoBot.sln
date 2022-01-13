@@ -23,7 +23,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MRQ.CryptoBot.Orchestrator"
 		{B1F637A0-1F73-428B-893E-5FBC67AFECC1} = {B1F637A0-1F73-428B-893E-5FBC67AFECC1}
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MRQBot.Business", "1 - Core\MetaMask.Business\MRQBot.Business.csproj", "{B1F637A0-1F73-428B-893E-5FBC67AFECC1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MRQ.CryptoBot.Business", "1 - Core\MetaMask.Business\MRQ.CryptoBot.Business.csproj", "{B1F637A0-1F73-428B-893E-5FBC67AFECC1}"
 	ProjectSection(ProjectDependencies) = postProject
 		{06E9F6BE-4C3A-41C6-A9C6-5812B3084949} = {06E9F6BE-4C3A-41C6-A9C6-5812B3084949}
 		{984B2ADC-25EE-45DF-9C0F-2ACE2563C9B9} = {984B2ADC-25EE-45DF-9C0F-2ACE2563C9B9}
@@ -49,7 +49,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MRQ.CryptoBot.Test", "4 - T
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MRQ.CryptoBot.Infra", "3 - Infra\MetaMask.Infra\MRQ.CryptoBot.Infra.csproj", "{EED49072-05F9-456E-9002-E67248B20FA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MRQ.CryptoBot.Repository", "2 - Adapter\MRQ.CryptoBot.Repository\MRQ.CryptoBot.Repository\MRQ.CryptoBot.Repository.csproj", "{A44EA7BB-ED6D-47CF-89C9-F16D2731B1BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MRQ.CryptoBot.Repository", "2 - Adapter\MRQ.CryptoBot.Repository\MRQ.CryptoBot.Repository\MRQ.CryptoBot.Repository.csproj", "{A44EA7BB-ED6D-47CF-89C9-F16D2731B1BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

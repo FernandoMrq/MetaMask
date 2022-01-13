@@ -1,7 +1,9 @@
-﻿using MRQ.CryptoBot.Domain.Adapter.Moralis;
+﻿using Microsoft.VisualBasic;
+using MRQ.CryptoBot.Domain.Adapter.Moralis;
 using MRQ.CryptoBot.Domain.Adapter.PancakeSwap;
 using MRQ.CryptoBot.Domain.Adapter.Token;
 using MRQ.ReturnContent;
+using System.Numerics;
 using System.Text.Json;
 
 namespace MRQ.CryptoBot.Integration.Moralis
@@ -11,6 +13,8 @@ namespace MRQ.CryptoBot.Integration.Moralis
         private readonly HttpClient? _httpClient;
         private readonly JsonSerializerOptions? _jsonSerializerOptions;
         private readonly Returned _returned;
+
+
 
         public MoralisTokenPriceAdapter(HttpClient httpClient)
         {
@@ -146,5 +150,58 @@ namespace MRQ.CryptoBot.Integration.Moralis
 
             return _returned;
         }
+
+        public async Task<Returned> GetWalletBalanceOfTokenAsync(WalletDto walletDto, TokenDto tokenDto)
+        {
+            ReturnedExtension.CleanReturned(_returned);
+            ReturnedExtension.InsertLogMessage(_returned, "MoralisTokenPriceAdapter - Inicio recupera balance of token in wallet");
+
+            if (_httpClient is null)
+                return _returned;
+
+            var returnedBalance = await GetWalletBalance(walletDto);
+
+            if (returnedBalance.Object is null)
+                return _returned;
+
+            var balance = (List<BalanceOfWalletTokenDto>)returnedBalance.Object;
+
+            var token = balance.Where(b => b.token_address == tokenDto.Adress).FirstOrDefault();
+
+            if (token == null)
+                return _returned;
+
+            tokenDto.BalanceWei = token.balance;
+            tokenDto.Decimals = token.decimals;
+
+            tokenDto.Balance = FromWei(tokenDto.BalanceWei, tokenDto.Decimals);
+            tokenDto.Name = token.name;
+
+
+            ReturnedExtension.InsertLogMessage(_returned, "MoralisTokenPriceAdapter - Fim recupera balance of token in wallet");
+            ReturnedExtension.AlterReturnedState(_returned, State.OK);
+
+            return _returned;
+        }
+
+        private string FromWei(string? value, string? decimalsNumber)
+        {
+            if (string.IsNullOrEmpty(value) || string.IsNullOrEmpty(decimalsNumber))
+                return string.Empty;
+
+            if (!BigInteger.TryParse(value, out var resultValue) || !int.TryParse(decimalsNumber, out var resultDecimals))
+                return string.Empty;
+
+            string resultAndDecimals = string.Concat(string.Concat(Enumerable.Repeat("0", resultDecimals)), resultValue);
+
+            var rightResultAndDecimals = Strings.Right(resultAndDecimals, resultDecimals);
+
+            var leftResultAndDecimals = Strings.Left(resultAndDecimals, resultAndDecimals.Length - resultDecimals);
+
+            long.TryParse(leftResultAndDecimals, out long convertedResultAndDecimals);
+
+            return string.Concat(convertedResultAndDecimals.ToString(), ",", rightResultAndDecimals);
+        }
+
     }
 }

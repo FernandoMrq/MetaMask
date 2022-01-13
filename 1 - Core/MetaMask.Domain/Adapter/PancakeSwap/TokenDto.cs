@@ -2,7 +2,8 @@
 {
     public class TokenDto : TokenBaseDto
     {
-        public decimal Balance { get; set; }
-        public decimal BalanceWei { get; set; }
+        public string? Balance { get; set; }
+        public string? BalanceWei { get; set; }
+        public string? Decimals { get; set; }
     }
 }

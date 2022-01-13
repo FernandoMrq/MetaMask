@@ -9,5 +9,6 @@ namespace MRQ.CryptoBot.Domain.Adapter.Token
         public Task<Returned> GetWalletBalanceDefault(WalletDto wallet);
         public Task<Returned> GetWalletBalance(WalletDto wallet);
         public Task<Returned> GetTransactionDetails(string hashTransaction);
+        public Task<Returned> GetWalletBalanceOfTokenAsync(WalletDto walletDto, TokenDto tokenDto);
     }
 }

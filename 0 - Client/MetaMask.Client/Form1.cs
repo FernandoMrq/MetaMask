@@ -114,7 +114,7 @@ namespace MRQ.CryptoBot.Client
             if (_moralisBalanceOrchestrator is null)
                 return;
 
-            await _moralisBalanceOrchestrator.GetWalletBalanceOfToken(_walletDtoOrigin, _tokenDtoOrigin);
+            await _moralisBalanceOrchestrator.GetWalletBalanceOfToken(_walletDtoOrigin, _tokenDtoOrigin); //TODO deu exception aqi quando clicava em balance e token price para token fora da carteira
 
             balance.Text = _tokenDtoOrigin.Name + " : " + _tokenDtoOrigin.Balance;
         }

@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using MRQ.CryptoBot.Business;
 using MRQ.CryptoBot.Domain.Adapter.Data;
-using MRQ.CryptoBot.Domain.Adapter.Token;
 using MRQ.CryptoBot.Domain.Adapter.PancakeSwap;
+using MRQ.CryptoBot.Domain.Adapter.Token;
 using MRQ.CryptoBot.Domain.Business;
 using MRQ.CryptoBot.Domain.Entities.Moralis;
 using MRQ.CryptoBot.Domain.Orchestrator;
@@ -24,6 +24,8 @@ namespace MRQ.CryptoBot.Client.Configurations
         public static IServiceCollection AddBusiness(this IServiceCollection services)
         {
             services.AddTransient<ITokenPriceBusiness, TokenPriceBusiness>();
+            services.AddTransient<IWalletBalanceBusiness, WalletBalanceBusiness>();
+            services.AddTransient<IOperationBusiness, OperationBusiness>();
             return services;
         }
 

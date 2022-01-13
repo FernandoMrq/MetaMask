@@ -28,6 +28,11 @@ namespace MRQ.CryptoBot.Integration.Nethereum
             _returned = ReturnedExtension.CreateReturned();
         }
 
+        public decimal ConvertFromWei(BigInteger value)
+        {
+            return Web3.Convert.FromWei(value);
+        }
+
         //contractAdress, web3Url, contractAbi, adressOfWallet 
         public async Task GetWalletBalanceOfTokenAsync(WalletDto walletDto, TokenDto tokenDto)
         {
@@ -40,10 +45,12 @@ namespace MRQ.CryptoBot.Integration.Nethereum
                 var contract = web3.Eth.GetContract(ConfigurationDto.ContractABI, tokenDto.Adress);
                 var balanceFunctionFromAbi = contract.GetFunction("balanceOf");
                 var nameFunctionFromAbi = await contract.GetFunction("name").CallAsync<string>();
-                var balance = await balanceFunctionFromAbi.CallAsync<BigInteger>(walletDto.Adress);
+                tokenDto.BalanceWei = (await balanceFunctionFromAbi.CallAsync<BigInteger>(walletDto.Adress)).ToString();
 
-                tokenDto.BalanceWei = decimal.Parse(balance.ToString());
-                tokenDto.Balance = Web3.Convert.FromWei(balance);
+                if (tokenDto.BalanceWei == null)
+                    return;
+
+                tokenDto.Balance = ConvertFromWei(BigInteger.Parse(tokenDto.BalanceWei)).ToString();
                 tokenDto.Name = nameFunctionFromAbi;
             }
             catch (Exception ex)
@@ -71,7 +78,7 @@ namespace MRQ.CryptoBot.Integration.Nethereum
                 var swapHandler = web3.Eth.GetContractTransactionHandler<SwapExactTokensForTokens>();
 
                 var camtidadBUSD = Web3.Convert.ToWei(tokenDestination.Balance);
-                var camtidadToken = Web3.Convert.ToWei(tokenDestination.Balance * ConfigurationDto.SlippageTolerance);
+                var camtidadToken = Web3.Convert.ToWei(decimal.Parse(tokenDestination.Balance) * ConfigurationDto.SlippageTolerance);
 
                 //string tokens = "";
 
