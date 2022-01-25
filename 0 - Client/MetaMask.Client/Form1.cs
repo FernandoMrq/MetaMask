@@ -1,3 +1,4 @@
+using MRQ.CryptoBot.Client.Interfaces;
 using MRQ.CryptoBot.Domain.Adapter.Moralis;
 using MRQ.CryptoBot.Domain.Adapter.PancakeSwap;
 using MRQ.CryptoBot.Domain.Orchestrator;
@@ -13,6 +14,7 @@ namespace MRQ.CryptoBot.Client
         private readonly WalletDto _walletDtoDestination;
         private readonly TokenDto _tokenDtoOrigin;
         private readonly TokenDto _tokenDtoDestination;
+        private readonly ConfigurationInterface _configurationInterface;
 
         public Form1()
         {
@@ -25,6 +27,8 @@ namespace MRQ.CryptoBot.Client
             _tokenDtoDestination = new TokenDto();
 
             _returned = ReturnedExtension.CreateReturned();
+
+            _configurationInterface = new ConfigurationInterface();
 
             InicializeReturned();
             InitializeComponent();
@@ -139,6 +143,11 @@ namespace MRQ.CryptoBot.Client
             await _moralisBalanceOrchestrator?.SendToWalletAsync(_walletDtoOrigin, _walletDtoDestination, _tokenDtoOrigin);
 
             ReturnedExtension.InsertLogMessage(_returned, "Form - Fim");
+        }
+
+        private void configurationDefaultMenuItem_Click(object sender, EventArgs e)
+        {
+            _configurationInterface.ShowDialog();
         }
     }
 }

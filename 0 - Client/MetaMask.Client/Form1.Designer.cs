@@ -49,11 +49,15 @@
             this.lblQuantidadeOrigem = new System.Windows.Forms.Label();
             this.lblQuantidadeDestino = new System.Windows.Forms.Label();
             this.quantidadeDestino = new System.Windows.Forms.TextBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.oPÇÕESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.configurationDefaultMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnAtualizarToken
             // 
-            this.btnAtualizarToken.Location = new System.Drawing.Point(12, 74);
+            this.btnAtualizarToken.Location = new System.Drawing.Point(12, 128);
             this.btnAtualizarToken.Name = "btnAtualizarToken";
             this.btnAtualizarToken.Size = new System.Drawing.Size(122, 22);
             this.btnAtualizarToken.TabIndex = 1;
@@ -64,7 +68,7 @@
             // valorToken
             // 
             this.valorToken.AutoSize = true;
-            this.valorToken.Location = new System.Drawing.Point(12, 56);
+            this.valorToken.Location = new System.Drawing.Point(12, 28);
             this.valorToken.Name = "valorToken";
             this.valorToken.Size = new System.Drawing.Size(33, 15);
             this.valorToken.TabIndex = 2;
@@ -72,14 +76,14 @@
             // 
             // tokenAdressOrigem
             // 
-            this.tokenAdressOrigem.Location = new System.Drawing.Point(12, 30);
+            this.tokenAdressOrigem.Location = new System.Drawing.Point(12, 84);
             this.tokenAdressOrigem.Name = "tokenAdressOrigem";
             this.tokenAdressOrigem.Size = new System.Drawing.Size(301, 23);
             this.tokenAdressOrigem.TabIndex = 3;
             // 
             // walletAdressOrigem
             // 
-            this.walletAdressOrigem.Location = new System.Drawing.Point(487, 30);
+            this.walletAdressOrigem.Location = new System.Drawing.Point(487, 84);
             this.walletAdressOrigem.Name = "walletAdressOrigem";
             this.walletAdressOrigem.Size = new System.Drawing.Size(301, 23);
             this.walletAdressOrigem.TabIndex = 4;
@@ -87,7 +91,7 @@
             // balance
             // 
             this.balance.AutoSize = true;
-            this.balance.Location = new System.Drawing.Point(487, 56);
+            this.balance.Location = new System.Drawing.Point(487, 110);
             this.balance.Name = "balance";
             this.balance.Size = new System.Drawing.Size(48, 15);
             this.balance.TabIndex = 5;
@@ -95,7 +99,7 @@
             // 
             // btnAtualizarBalance
             // 
-            this.btnAtualizarBalance.Location = new System.Drawing.Point(487, 74);
+            this.btnAtualizarBalance.Location = new System.Drawing.Point(487, 128);
             this.btnAtualizarBalance.Name = "btnAtualizarBalance";
             this.btnAtualizarBalance.Size = new System.Drawing.Size(122, 22);
             this.btnAtualizarBalance.TabIndex = 6;
@@ -107,7 +111,7 @@
             // 
             this.consoleMessage.BackColor = System.Drawing.SystemColors.InfoText;
             this.consoleMessage.ForeColor = System.Drawing.SystemColors.Window;
-            this.consoleMessage.Location = new System.Drawing.Point(12, 305);
+            this.consoleMessage.Location = new System.Drawing.Point(12, 359);
             this.consoleMessage.Multiline = true;
             this.consoleMessage.Name = "consoleMessage";
             this.consoleMessage.Size = new System.Drawing.Size(776, 133);
@@ -116,7 +120,7 @@
             // lblTokenOrigem
             // 
             this.lblTokenOrigem.AutoSize = true;
-            this.lblTokenOrigem.Location = new System.Drawing.Point(12, 9);
+            this.lblTokenOrigem.Location = new System.Drawing.Point(12, 63);
             this.lblTokenOrigem.Name = "lblTokenOrigem";
             this.lblTokenOrigem.Size = new System.Drawing.Size(89, 15);
             this.lblTokenOrigem.TabIndex = 8;
@@ -125,7 +129,7 @@
             // lblWalletOrigem
             // 
             this.lblWalletOrigem.AutoSize = true;
-            this.lblWalletOrigem.Location = new System.Drawing.Point(488, 9);
+            this.lblWalletOrigem.Location = new System.Drawing.Point(488, 63);
             this.lblWalletOrigem.Name = "lblWalletOrigem";
             this.lblWalletOrigem.Size = new System.Drawing.Size(91, 15);
             this.lblWalletOrigem.TabIndex = 9;
@@ -134,7 +138,7 @@
             // lblTokenDestino
             // 
             this.lblTokenDestino.AutoSize = true;
-            this.lblTokenDestino.Location = new System.Drawing.Point(12, 99);
+            this.lblTokenDestino.Location = new System.Drawing.Point(12, 153);
             this.lblTokenDestino.Name = "lblTokenDestino";
             this.lblTokenDestino.Size = new System.Drawing.Size(89, 15);
             this.lblTokenDestino.TabIndex = 11;
@@ -142,7 +146,7 @@
             // 
             // tokenAdressDestino
             // 
-            this.tokenAdressDestino.Location = new System.Drawing.Point(12, 117);
+            this.tokenAdressDestino.Location = new System.Drawing.Point(12, 171);
             this.tokenAdressDestino.Name = "tokenAdressDestino";
             this.tokenAdressDestino.Size = new System.Drawing.Size(301, 23);
             this.tokenAdressDestino.TabIndex = 10;
@@ -150,7 +154,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(488, 99);
+            this.label1.Location = new System.Drawing.Point(488, 153);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(91, 15);
             this.label1.TabIndex = 13;
@@ -158,7 +162,7 @@
             // 
             // walletAdressDestino
             // 
-            this.walletAdressDestino.Location = new System.Drawing.Point(487, 117);
+            this.walletAdressDestino.Location = new System.Drawing.Point(487, 171);
             this.walletAdressDestino.Name = "walletAdressDestino";
             this.walletAdressDestino.Size = new System.Drawing.Size(301, 23);
             this.walletAdressDestino.TabIndex = 12;
@@ -166,7 +170,7 @@
             // lblPrivateKey
             // 
             this.lblPrivateKey.AutoSize = true;
-            this.lblPrivateKey.Location = new System.Drawing.Point(12, 143);
+            this.lblPrivateKey.Location = new System.Drawing.Point(12, 197);
             this.lblPrivateKey.Name = "lblPrivateKey";
             this.lblPrivateKey.Size = new System.Drawing.Size(105, 15);
             this.lblPrivateKey.TabIndex = 15;
@@ -174,7 +178,7 @@
             // 
             // privateKeyOrigem
             // 
-            this.privateKeyOrigem.Location = new System.Drawing.Point(12, 161);
+            this.privateKeyOrigem.Location = new System.Drawing.Point(12, 215);
             this.privateKeyOrigem.Name = "privateKeyOrigem";
             this.privateKeyOrigem.Size = new System.Drawing.Size(301, 23);
             this.privateKeyOrigem.TabIndex = 14;
@@ -182,7 +186,7 @@
             // 
             // btnTransferirParaDestino
             // 
-            this.btnTransferirParaDestino.Location = new System.Drawing.Point(487, 277);
+            this.btnTransferirParaDestino.Location = new System.Drawing.Point(487, 331);
             this.btnTransferirParaDestino.Name = "btnTransferirParaDestino";
             this.btnTransferirParaDestino.Size = new System.Drawing.Size(137, 22);
             this.btnTransferirParaDestino.TabIndex = 16;
@@ -192,7 +196,7 @@
             // 
             // btnSwapTokens
             // 
-            this.btnSwapTokens.Location = new System.Drawing.Point(12, 277);
+            this.btnSwapTokens.Location = new System.Drawing.Point(12, 331);
             this.btnSwapTokens.Name = "btnSwapTokens";
             this.btnSwapTokens.Size = new System.Drawing.Size(137, 22);
             this.btnSwapTokens.TabIndex = 17;
@@ -202,7 +206,7 @@
             // 
             // quantidadeOrigem
             // 
-            this.quantidadeOrigem.Location = new System.Drawing.Point(488, 161);
+            this.quantidadeOrigem.Location = new System.Drawing.Point(488, 215);
             this.quantidadeOrigem.Name = "quantidadeOrigem";
             this.quantidadeOrigem.Size = new System.Drawing.Size(301, 23);
             this.quantidadeOrigem.TabIndex = 18;
@@ -210,7 +214,7 @@
             // lblQuantidadeOrigem
             // 
             this.lblQuantidadeOrigem.AutoSize = true;
-            this.lblQuantidadeOrigem.Location = new System.Drawing.Point(487, 143);
+            this.lblQuantidadeOrigem.Location = new System.Drawing.Point(487, 197);
             this.lblQuantidadeOrigem.Name = "lblQuantidadeOrigem";
             this.lblQuantidadeOrigem.Size = new System.Drawing.Size(112, 15);
             this.lblQuantidadeOrigem.TabIndex = 19;
@@ -219,7 +223,7 @@
             // lblQuantidadeDestino
             // 
             this.lblQuantidadeDestino.AutoSize = true;
-            this.lblQuantidadeDestino.Location = new System.Drawing.Point(11, 191);
+            this.lblQuantidadeDestino.Location = new System.Drawing.Point(11, 245);
             this.lblQuantidadeDestino.Name = "lblQuantidadeDestino";
             this.lblQuantidadeDestino.Size = new System.Drawing.Size(112, 15);
             this.lblQuantidadeDestino.TabIndex = 21;
@@ -227,16 +231,41 @@
             // 
             // quantidadeDestino
             // 
-            this.quantidadeDestino.Location = new System.Drawing.Point(12, 209);
+            this.quantidadeDestino.Location = new System.Drawing.Point(12, 263);
             this.quantidadeDestino.Name = "quantidadeDestino";
             this.quantidadeDestino.Size = new System.Drawing.Size(301, 23);
             this.quantidadeDestino.TabIndex = 20;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.oPÇÕESToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.TabIndex = 22;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // oPÇÕESToolStripMenuItem
+            // 
+            this.oPÇÕESToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.configurationDefaultMenuItem});
+            this.oPÇÕESToolStripMenuItem.Name = "oPÇÕESToolStripMenuItem";
+            this.oPÇÕESToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+            this.oPÇÕESToolStripMenuItem.Text = "OPÇÕES";
+            // 
+            // configurationDefaultMenuItem
+            // 
+            this.configurationDefaultMenuItem.Name = "configurationDefaultMenuItem";
+            this.configurationDefaultMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.configurationDefaultMenuItem.Text = "CONFIGURAÇÕES PADRÃO";
+            this.configurationDefaultMenuItem.Click += new System.EventHandler(this.configurationDefaultMenuItem_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 503);
             this.Controls.Add(this.lblQuantidadeDestino);
             this.Controls.Add(this.quantidadeDestino);
             this.Controls.Add(this.lblQuantidadeOrigem);
@@ -258,8 +287,12 @@
             this.Controls.Add(this.tokenAdressOrigem);
             this.Controls.Add(this.valorToken);
             this.Controls.Add(this.btnAtualizarToken);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -287,5 +320,8 @@
         private Label lblQuantidadeOrigem;
         private Label lblQuantidadeDestino;
         private TextBox quantidadeDestino;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem oPÇÕESToolStripMenuItem;
+        private ToolStripMenuItem configurationDefaultMenuItem;
     }
 }
