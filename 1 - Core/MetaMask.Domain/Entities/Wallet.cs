@@ -1,6 +1,9 @@
 ﻿namespace MRQ.CryptoBot.Domain.Entities
 {
-    internal class Wallet
+    public class Wallet
     {
+        public int Id { get; set; }
+        public string? Adress { get; set; }
+        public string? PrivateKey { get; set; }
     }
 }

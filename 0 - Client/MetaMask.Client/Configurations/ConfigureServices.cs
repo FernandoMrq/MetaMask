@@ -4,6 +4,7 @@ using MRQ.CryptoBot.Domain.Adapter.Data;
 using MRQ.CryptoBot.Domain.Adapter.PancakeSwap;
 using MRQ.CryptoBot.Domain.Adapter.Token;
 using MRQ.CryptoBot.Domain.Business;
+using MRQ.CryptoBot.Domain.Entities;
 using MRQ.CryptoBot.Domain.Entities.Moralis;
 using MRQ.CryptoBot.Domain.Orchestrator;
 using MRQ.CryptoBot.Integration.Moralis;
@@ -31,10 +32,16 @@ namespace MRQ.CryptoBot.Client.Configurations
 
         public static IServiceCollection AddAdapter(this IServiceCollection services)
         {
-            services.AddTransient<ISQLiteEntityAdapter<Balance>, EntityService<Balance>>();
-            services.AddTransient<ISQLiteEntityAdapter<NativePrice>, EntityService<NativePrice>>();
             services.AddTransient<ITokenPriceAdapter, MoralisTokenPriceAdapter>();
             services.AddTransient<IBlockChainOperationAdapter, PancakeSwapAdapter>();
+            services.AddTransient<ISQLiteEntityAdapter<Balance>, EntityService<Balance>>();
+            services.AddTransient<ISQLiteEntityAdapter<NativePrice>, EntityService<NativePrice>>();
+            services.AddTransient<ISQLiteEntityAdapter<Wallet>, EntityService<Wallet>>();
+            services.AddTransient<ISQLiteEntityAdapter<Token>, EntityService<Token>>();
+            services.AddTransient<ISQLiteEntityAdapter<Configuration>, EntityService<Configuration>>();
+            services.AddTransient<ISQLiteEntityAdapter<RoutersForSwap>, EntityService<RoutersForSwap>>();
+            services.AddTransient<ISQLiteEntityAdapter<Router>, EntityService<Router>>();
+            services.AddTransient<ISQLiteEntityAdapter<MoralisApiKey>, EntityService<MoralisApiKey>>();
 
             return services;
         }
