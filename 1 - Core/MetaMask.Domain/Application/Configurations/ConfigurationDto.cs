@@ -1,7 +1,8 @@
 ﻿using MRQ.CryptoBot.Domain.Adapter.Moralis;
+using MRQ.CryptoBot.Domain.Entities;
 using System.Numerics;
 
-namespace MRQ.CryptoBot.Domain.Adapter.PancakeSwap
+namespace MRQ.CryptoBot.Domain.Application.Configurations
 {
     public static class ConfigurationDto
     {
@@ -21,7 +22,7 @@ namespace MRQ.CryptoBot.Domain.Adapter.PancakeSwap
         public static string? TokenDefaultContract { get; set; }
 
         //Mudar para objeto com tres propriedades, ordem, token e routname ||-->> Ao adicionar na tela adicionar como tabela
-        public static IList<string>? RoutersForSwaps { get; set; }
+        public static IList<RoutersForSwapDto>? RoutersForSwaps { get; set; }
 
 
         #endregion
@@ -32,6 +33,7 @@ namespace MRQ.CryptoBot.Domain.Adapter.PancakeSwap
         public static string? KeyName { get; set; }
         public static ChainType ChainType { get; set; }
         //Ao adicionar na tela adicionar como tabela
+        //public static IList<MoralisApiKeyDto>? MoralisApiKeys { get; set; }
         public static IList<string>? MoralisApiKeys { get; set; }
 
 

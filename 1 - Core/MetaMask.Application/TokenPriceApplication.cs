@@ -1,17 +1,17 @@
 ﻿using MRQ.CryptoBot.Domain.Adapter.PancakeSwap;
+using MRQ.CryptoBot.Domain.Application;
 using MRQ.CryptoBot.Domain.Business;
-using MRQ.CryptoBot.Domain.Orchestrator;
 using MRQ.ReturnContent;
 
-namespace MRQ.CryptoBot.Orchestrator
+namespace MRQ.CryptoBot.Application
 {
-    public class TokenPriceOrchestrator : ITokenPriceOrchestrator
+    public class TokenPriceApplication : ITokenPriceApplication
     {
         readonly ITokenPriceBusiness _tokenPriceBusiness;
         readonly IWalletBalanceBusiness _walletBalanceBusiness;
         readonly IOperationBusiness _operationBusiness;
 
-        public TokenPriceOrchestrator(ITokenPriceBusiness moralisBalanceBusiness, IWalletBalanceBusiness walletBalanceBusiness, IOperationBusiness operationBusiness)
+        public TokenPriceApplication(ITokenPriceBusiness moralisBalanceBusiness, IWalletBalanceBusiness walletBalanceBusiness, IOperationBusiness operationBusiness)
         {
             _tokenPriceBusiness = moralisBalanceBusiness;
             _walletBalanceBusiness = walletBalanceBusiness;

@@ -1,4 +1,5 @@
 ﻿using MRQ.CryptoBot.Domain.Adapter.PancakeSwap;
+using MRQ.CryptoBot.Domain.Application.Configurations;
 using MRQ.ReturnContent;
 using Nethereum.Hex.HexTypes;
 using Nethereum.RPC.Eth.DTOs;

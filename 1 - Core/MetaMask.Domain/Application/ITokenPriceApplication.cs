@@ -1,9 +1,9 @@
 ﻿using MRQ.CryptoBot.Domain.Adapter.PancakeSwap;
 using MRQ.ReturnContent;
 
-namespace MRQ.CryptoBot.Domain.Orchestrator
+namespace MRQ.CryptoBot.Domain.Application
 {
-    public interface ITokenPriceOrchestrator
+    public interface ITokenPriceApplication
     {
         public Task<Returned> GetTokenPrice(TokenDto tokenDtoOrigin);
         public Task GetWalletBalanceOfToken(WalletDto walletDto, TokenDto token);

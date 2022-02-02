@@ -28,8 +28,9 @@ namespace MRQ.CryptoBot.Client
             services.AddInfra();
             services.AddAdapter();
             services.AddBusiness();
-            services.AddOrchestrator();
+            services.AddApplication();
             services.AddExternalServices();
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             ServiceProvider = services.BuildServiceProvider();
         }

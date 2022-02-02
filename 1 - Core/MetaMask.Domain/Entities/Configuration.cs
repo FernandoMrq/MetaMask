@@ -22,7 +22,7 @@ namespace MRQ.CryptoBot.Domain.Entities
         public string? TokenDefaultContract { get; set; }
 
         //Mudar para objeto com tres propriedades, ordem, token e routname ||-->> Ao adicionar na tela adicionar como tabela
-        public IEnumerable<RoutersForSwap>? RoutersForSwaps { get; set; }
+        public IList<RoutersForSwap>? RoutersForSwaps { get; set; }
 
 
         #endregion
@@ -33,7 +33,7 @@ namespace MRQ.CryptoBot.Domain.Entities
         public string? KeyName { get; set; }
         public ChainType ChainType { get; set; }
         //Ao adicionar na tela adicionar como tabela
-        public IEnumerable<MoralisApiKey>? MoralisApiKeys { get; set; }
+        public IList<MoralisApiKey>? MoralisApiKeys { get; set; }
 
 
         #endregion

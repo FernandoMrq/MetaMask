@@ -1,24 +1,24 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using MRQ.CryptoBot.Application;
 using MRQ.CryptoBot.Business;
 using MRQ.CryptoBot.Domain.Adapter.Data;
 using MRQ.CryptoBot.Domain.Adapter.PancakeSwap;
 using MRQ.CryptoBot.Domain.Adapter.Token;
+using MRQ.CryptoBot.Domain.Application;
 using MRQ.CryptoBot.Domain.Business;
 using MRQ.CryptoBot.Domain.Entities;
 using MRQ.CryptoBot.Domain.Entities.Moralis;
-using MRQ.CryptoBot.Domain.Orchestrator;
 using MRQ.CryptoBot.Integration.Moralis;
 using MRQ.CryptoBot.Integration.Nethereum;
-using MRQ.CryptoBot.Orchestrator;
 using MRQ.CryptoBot.Repository.Service;
 
 namespace MRQ.CryptoBot.Client.Configurations
 {
     public static class ConfigureServices
     {
-        public static IServiceCollection AddOrchestrator(this IServiceCollection services)
+        public static IServiceCollection AddApplication(this IServiceCollection services)
         {
-            services.AddTransient<ITokenPriceOrchestrator, TokenPriceOrchestrator>();
+            services.AddTransient<ITokenPriceApplication, TokenPriceApplication>();
             return services;
         }
 

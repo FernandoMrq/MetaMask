@@ -1,7 +1,7 @@
 using MRQ.CryptoBot.Client.Interfaces;
 using MRQ.CryptoBot.Domain.Adapter.Moralis;
 using MRQ.CryptoBot.Domain.Adapter.PancakeSwap;
-using MRQ.CryptoBot.Domain.Orchestrator;
+using MRQ.CryptoBot.Domain.Application;
 using MRQ.ReturnContent;
 
 namespace MRQ.CryptoBot.Client
@@ -9,7 +9,7 @@ namespace MRQ.CryptoBot.Client
     public partial class Form1 : Form
     {
         private readonly Returned _returned;
-        private readonly ITokenPriceOrchestrator? _moralisBalanceOrchestrator;
+        private readonly ITokenPriceApplication? _moralisBalanceApplication;
         private readonly WalletDto _walletDtoOrigin;
         private readonly WalletDto _walletDtoDestination;
         private readonly TokenDto _tokenDtoOrigin;
@@ -18,7 +18,7 @@ namespace MRQ.CryptoBot.Client
 
         public Form1()
         {
-            _moralisBalanceOrchestrator = Program.ServiceProvider?.GetService(typeof(ITokenPriceOrchestrator)) as ITokenPriceOrchestrator;
+            _moralisBalanceApplication = Program.ServiceProvider?.GetService(typeof(ITokenPriceApplication)) as ITokenPriceApplication;
 
             _walletDtoOrigin = new WalletDto();
             _walletDtoDestination = new WalletDto();
@@ -95,17 +95,17 @@ namespace MRQ.CryptoBot.Client
 
             PriceOfTokenDto retorno;
 
-            if (_moralisBalanceOrchestrator is null)
+            if (_moralisBalanceApplication is null)
                 return;
 
             if (_tokenDtoOrigin.Adress is null)
                 return;
 
-            retorno = (PriceOfTokenDto)(await _moralisBalanceOrchestrator.GetTokenPrice(_tokenDtoOrigin)).Object;
+            retorno = (PriceOfTokenDto)(await _moralisBalanceApplication.GetTokenPrice(_tokenDtoOrigin)).Object;
 
-            //await _moralisBalanceOrchestrator.GetWalletBalanceDefault(_walletDtoOrigin);
-            //await _moralisBalanceOrchestrator.GetWalletBalance(_walletDtoOrigin);
-            //await _moralisBalanceOrchestrator.GetTransactionDetails("0x34a234638b0cbf184b6985cf0db2ac3a5b6522b6c9636a746a651c727fb219ab");
+            //await _moralisBalanceApplication.GetWalletBalanceDefault(_walletDtoOrigin);
+            //await _moralisBalanceApplication.GetWalletBalance(_walletDtoOrigin);
+            //await _moralisBalanceApplication.GetTransactionDetails("0x34a234638b0cbf184b6985cf0db2ac3a5b6522b6c9636a746a651c727fb219ab");
 
             valorToken.Text = retorno.UsdPrice.ToString();
         }
@@ -115,10 +115,10 @@ namespace MRQ.CryptoBot.Client
             consoleMessage.Clear();
             FillObjectsFromForm();
 
-            if (_moralisBalanceOrchestrator is null)
+            if (_moralisBalanceApplication is null)
                 return;
 
-            await _moralisBalanceOrchestrator.GetWalletBalanceOfToken(_walletDtoOrigin, _tokenDtoOrigin); //TODO deu exception aqi quando clicava em balance e token price para token fora da carteira
+            await _moralisBalanceApplication.GetWalletBalanceOfToken(_walletDtoOrigin, _tokenDtoOrigin); //TODO deu exception aqi quando clicava em balance e token price para token fora da carteira
 
             balance.Text = _tokenDtoOrigin.Name + " : " + _tokenDtoOrigin.Balance;
         }
@@ -128,7 +128,7 @@ namespace MRQ.CryptoBot.Client
             consoleMessage.Clear();
             FillObjectsFromForm();
 
-            await _moralisBalanceOrchestrator?.SwapTokensAsync(_walletDtoOrigin, _tokenDtoOrigin, _tokenDtoDestination);
+            await _moralisBalanceApplication?.SwapTokensAsync(_walletDtoOrigin, _tokenDtoOrigin, _tokenDtoDestination);
 
             ReturnedExtension.InsertLogMessage(_returned, "Form - Fim");
         }
@@ -140,7 +140,7 @@ namespace MRQ.CryptoBot.Client
 
             ReturnedExtension.InsertLogMessage(_returned, "Form - Inicio");
 
-            await _moralisBalanceOrchestrator?.SendToWalletAsync(_walletDtoOrigin, _walletDtoDestination, _tokenDtoOrigin);
+            await _moralisBalanceApplication?.SendToWalletAsync(_walletDtoOrigin, _walletDtoDestination, _tokenDtoOrigin);
 
             ReturnedExtension.InsertLogMessage(_returned, "Form - Fim");
         }
