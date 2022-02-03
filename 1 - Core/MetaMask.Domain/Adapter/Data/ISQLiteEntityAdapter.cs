@@ -1,4 +1,4 @@
-﻿namespace MRQ.CryptoBot.Domain.Adapter.Data
+﻿namespace MRQ.CryptoBot.Domains.Adapter.Data
 {
     public interface ISQLiteEntityAdapter<T> where T : class
     {

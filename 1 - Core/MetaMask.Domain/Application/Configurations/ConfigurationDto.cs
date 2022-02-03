@@ -1,8 +1,8 @@
-﻿using MRQ.CryptoBot.Domain.Adapter.Moralis;
-using MRQ.CryptoBot.Domain.Application.Moralis;
+﻿using MRQ.CryptoBot.Domains.Adapter.Moralis;
+using MRQ.CryptoBot.Domains.Application.Moralis;
 using System.Numerics;
 
-namespace MRQ.CryptoBot.Domain.Application.Configurations
+namespace MRQ.CryptoBot.Domains.Application.Configurations
 {
     public class ConfigurationDto
     {

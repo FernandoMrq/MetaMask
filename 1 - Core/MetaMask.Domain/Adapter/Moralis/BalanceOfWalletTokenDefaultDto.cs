@@ -1,4 +1,4 @@
-﻿namespace MRQ.CryptoBot.Domain.Adapter.Moralis
+﻿namespace MRQ.CryptoBot.Domains.Adapter.Moralis
 {
     public class BalanceOfWalletTokenDefaultDto
     {

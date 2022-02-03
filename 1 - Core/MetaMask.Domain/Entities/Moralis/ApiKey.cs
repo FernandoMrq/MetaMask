@@ -1,4 +1,4 @@
-﻿namespace MRQ.CryptoBot.Domain.Entities.Moralis
+﻿namespace MRQ.CryptoBot.Domains.Entities.Moralis
 {
 
     //TODO esse é o lugar correto?

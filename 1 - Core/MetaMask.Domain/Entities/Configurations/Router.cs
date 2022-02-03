@@ -1,4 +1,4 @@
-﻿namespace MRQ.CryptoBot.Domain.Entities.Configurations
+﻿namespace MRQ.CryptoBot.Domains.Entities.Configurations
 {
     public class Router
     {

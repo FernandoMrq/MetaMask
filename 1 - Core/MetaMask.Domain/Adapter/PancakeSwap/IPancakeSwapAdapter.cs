@@ -1,6 +1,6 @@
 ﻿using MRQ.ReturnContent;
 
-namespace MRQ.CryptoBot.Domain.Adapter.PancakeSwap
+namespace MRQ.CryptoBot.Domains.Adapter.PancakeSwap
 {
     public interface IBlockChainOperationAdapter
     {

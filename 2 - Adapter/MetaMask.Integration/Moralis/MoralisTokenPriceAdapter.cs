@@ -1,8 +1,8 @@
 ﻿using Microsoft.VisualBasic;
-using MRQ.CryptoBot.Domain.Adapter.Moralis;
-using MRQ.CryptoBot.Domain.Adapter.PancakeSwap;
-using MRQ.CryptoBot.Domain.Adapter.Token;
-using MRQ.CryptoBot.Domain.Application.Configurations;
+using MRQ.CryptoBot.Domains.Adapter.Moralis;
+using MRQ.CryptoBot.Domains.Adapter.PancakeSwap;
+using MRQ.CryptoBot.Domains.Adapter.Token;
+using MRQ.CryptoBot.Domains.Application.Configurations;
 using MRQ.ReturnContent;
 using System.Numerics;
 using System.Text.Json;

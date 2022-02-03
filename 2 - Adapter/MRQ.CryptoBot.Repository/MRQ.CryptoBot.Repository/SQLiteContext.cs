@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MRQ.CryptoBot.Domain.Application.Moralis;
-using MRQ.CryptoBot.Domain.Entities;
-using MRQ.CryptoBot.Domain.Entities.Configurations;
-using MRQ.CryptoBot.Domain.Entities.Moralis;
+using MRQ.CryptoBot.Domains.Application.Moralis;
+using MRQ.CryptoBot.Domains.Entities;
+using MRQ.CryptoBot.Domains.Entities.Configurations;
+using MRQ.CryptoBot.Domains.Entities.Moralis;
 
 namespace MRQ.CryptoBot.Repository
 {

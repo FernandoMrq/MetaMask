@@ -1,7 +1,7 @@
-﻿using MRQ.CryptoBot.Domain.Adapter.PancakeSwap;
+﻿using MRQ.CryptoBot.Domains.Adapter.PancakeSwap;
 using MRQ.ReturnContent;
 
-namespace MRQ.CryptoBot.Domain.Business
+namespace MRQ.CryptoBot.Domains.Business
 {
     public interface IOperationBusiness
     {

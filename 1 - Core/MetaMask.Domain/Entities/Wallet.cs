@@ -1,4 +1,4 @@
-﻿namespace MRQ.CryptoBot.Domain.Entities
+﻿namespace MRQ.CryptoBot.Domains.Entities
 {
     public class Wallet
     {

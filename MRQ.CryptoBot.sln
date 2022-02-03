@@ -18,7 +18,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MRQ.CryptoBot.Client", "0 -
 		{F442B014-8592-4ACB-A9EE-939601655FFE} = {F442B014-8592-4ACB-A9EE-939601655FFE}
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MRQ.CryptoBot.Application", "1 - Core\MetaMask.Application\MRQ.CryptoBot.Application.csproj", "{F442B014-8592-4ACB-A9EE-939601655FFE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MRQ.CryptoBot.Applications", "1 - Core\MetaMask.Application\MRQ.CryptoBot.Applications.csproj", "{F442B014-8592-4ACB-A9EE-939601655FFE}"
 	ProjectSection(ProjectDependencies) = postProject
 		{B1F637A0-1F73-428B-893E-5FBC67AFECC1} = {B1F637A0-1F73-428B-893E-5FBC67AFECC1}
 	EndProjectSection
@@ -29,12 +29,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MRQ.CryptoBot.Business", "1
 		{984B2ADC-25EE-45DF-9C0F-2ACE2563C9B9} = {984B2ADC-25EE-45DF-9C0F-2ACE2563C9B9}
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MRQ.CryptoBot.Domain", "1 - Core\MetaMask.Domain\MRQ.CryptoBot.Domain.csproj", "{984B2ADC-25EE-45DF-9C0F-2ACE2563C9B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MRQ.CryptoBot.Domains", "1 - Core\MetaMask.Domain\MRQ.CryptoBot.Domains.csproj", "{984B2ADC-25EE-45DF-9C0F-2ACE2563C9B9}"
 	ProjectSection(ProjectDependencies) = postProject
 		{6C1BA05B-3C72-4441-B5D0-1C4196103AAB} = {6C1BA05B-3C72-4441-B5D0-1C4196103AAB}
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MRQ.CryptoBot.Shared", "1 - Core\MetaMask.Shared\MRQ.CryptoBot.Shared.csproj", "{6C1BA05B-3C72-4441-B5D0-1C4196103AAB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MRQ.CryptoBot.Shareds", "1 - Core\MetaMask.Shared\MRQ.CryptoBot.Shareds.csproj", "{6C1BA05B-3C72-4441-B5D0-1C4196103AAB}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MRQ.CryptoBot.Integration", "2 - Adapter\MetaMask.Integration\MRQ.CryptoBot.Integration.csproj", "{06E9F6BE-4C3A-41C6-A9C6-5812B3084949}"
 	ProjectSection(ProjectDependencies) = postProject

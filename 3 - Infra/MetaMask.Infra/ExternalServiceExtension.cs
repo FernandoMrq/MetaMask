@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using MRQ.CryptoBot.Domain.Adapter.Token;
+using MRQ.CryptoBot.Domains.Adapter.Token;
 using MRQ.CryptoBot.Integration.Moralis;
 
 namespace MRQ.CryptoBot.Infra

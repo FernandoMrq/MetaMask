@@ -12,7 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Library\MRQ.ReturnContent\MRQ.ReturnContent.csproj" />
-    <ProjectReference Include="..\MetaMask.Shared\MRQ.CryptoBot.Shared.csproj" />
+    <ProjectReference Include="..\MetaMask.Shared\MRQ.CryptoBot.Shareds.csproj" />
   </ItemGroup>
 
 </Project>

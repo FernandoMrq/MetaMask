@@ -9,7 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\2 - Adapter\MetaMask.Integration\MRQ.CryptoBot.Integration.csproj" />
     <ProjectReference Include="..\..\2 - Adapter\MRQ.CryptoBot.Repository\MRQ.CryptoBot.Repository\MRQ.CryptoBot.Repository.csproj" />
-    <ProjectReference Include="..\MetaMask.Domain\MRQ.CryptoBot.Domain.csproj" />
+    <ProjectReference Include="..\MetaMask.Domain\MRQ.CryptoBot.Domains.csproj" />
   </ItemGroup>
 
 </Project>

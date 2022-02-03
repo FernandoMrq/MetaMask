@@ -1,4 +1,4 @@
-﻿namespace MRQ.CryptoBot.Domain.Application.Moralis
+﻿namespace MRQ.CryptoBot.Domains.Application.Moralis
 {
     //TODO esse é o lugar correto?
     public class ApiKeyDto

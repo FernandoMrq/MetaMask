@@ -1,6 +1,6 @@
-﻿using MRQ.CryptoBot.Domain.Adapter.PancakeSwap;
-using MRQ.CryptoBot.Domain.Adapter.Token;
-using MRQ.CryptoBot.Domain.Business;
+﻿using MRQ.CryptoBot.Domains.Adapter.PancakeSwap;
+using MRQ.CryptoBot.Domains.Adapter.Token;
+using MRQ.CryptoBot.Domains.Business;
 using MRQ.ReturnContent;
 
 namespace MRQ.CryptoBot.Business

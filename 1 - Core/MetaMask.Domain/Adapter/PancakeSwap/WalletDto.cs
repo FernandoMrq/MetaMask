@@ -1,4 +1,4 @@
-﻿namespace MRQ.CryptoBot.Domain.Adapter.PancakeSwap
+﻿namespace MRQ.CryptoBot.Domains.Adapter.PancakeSwap
 {
     //contractAdress, web3Url, contractAbi, adressOfWallet 
     public class WalletDto

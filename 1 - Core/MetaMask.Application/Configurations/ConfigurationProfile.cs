@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace MRQ.CryptoBot.Application.Configurations
+namespace MRQ.CryptoBot.Applications.Configurations
 {
     public class ConfigurationProfile : Profile
     {

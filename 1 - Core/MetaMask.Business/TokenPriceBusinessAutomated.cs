@@ -1,4 +1,4 @@
-﻿using MRQ.CryptoBot.Domain.Adapter.Token;
+﻿using MRQ.CryptoBot.Domains.Adapter.Token;
 
 namespace MRQ.CryptoBot.Business
 {

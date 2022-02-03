@@ -16,10 +16,11 @@ namespace MRQ.CryptoBot.Client
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             ConfigureServices();
-            System.Windows.Forms.Application.Run(new Form1());
+            Application.Run(new Form1());
         }
 
-        public static IServiceProvider? ServiceProvider { get; set; }
+        public static IServiceProvider? ServiceProvider
+        { get; set; }
 
         static void ConfigureServices()
         {

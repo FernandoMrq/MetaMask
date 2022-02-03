@@ -1,9 +1,9 @@
-﻿using MRQ.CryptoBot.Domain.Adapter.PancakeSwap;
-using MRQ.CryptoBot.Domain.Application;
-using MRQ.CryptoBot.Domain.Business;
+﻿using MRQ.CryptoBot.Domains.Adapter.PancakeSwap;
+using MRQ.CryptoBot.Domains.Application;
+using MRQ.CryptoBot.Domains.Business;
 using MRQ.ReturnContent;
 
-namespace MRQ.CryptoBot.Application
+namespace MRQ.CryptoBot.Applications
 {
     public class TokenPriceApplication : ITokenPriceApplication
     {

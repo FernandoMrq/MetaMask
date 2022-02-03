@@ -1,7 +1,7 @@
-﻿using MRQ.CryptoBot.Domain.Adapter.Moralis;
-using MRQ.CryptoBot.Domain.Entities.Moralis;
+﻿using MRQ.CryptoBot.Domains.Adapter.Moralis;
+using MRQ.CryptoBot.Domains.Entities.Moralis;
 
-namespace MRQ.CryptoBot.Domain.Entities.Configurations
+namespace MRQ.CryptoBot.Domains.Entities.Configurations
 {
     public class Configuration
     {

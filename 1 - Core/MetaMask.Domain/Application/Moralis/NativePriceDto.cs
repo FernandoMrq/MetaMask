@@ -1,4 +1,4 @@
-﻿namespace MRQ.CryptoBot.Domain.Application.Moralis
+﻿namespace MRQ.CryptoBot.Domains.Application.Moralis
 {
     public class NativePriceDto
     {

@@ -1,7 +1,7 @@
 using MRQ.CryptoBot.Client.Interfaces;
-using MRQ.CryptoBot.Domain.Adapter.Moralis;
-using MRQ.CryptoBot.Domain.Adapter.PancakeSwap;
-using MRQ.CryptoBot.Domain.Application;
+using MRQ.CryptoBot.Domains.Adapter.Moralis;
+using MRQ.CryptoBot.Domains.Adapter.PancakeSwap;
+using MRQ.CryptoBot.Domains.Application;
 using MRQ.ReturnContent;
 
 namespace MRQ.CryptoBot.Client

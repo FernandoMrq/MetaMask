@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MRQ.CryptoBot.Domain.Adapter.Data;
+using MRQ.CryptoBot.Domains.Adapter.Data;
 
 namespace MRQ.CryptoBot.Repository.Service
 {
