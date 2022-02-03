@@ -1,6 +1,7 @@
 ﻿using MRQ.CryptoBot.Domain.Adapter.Moralis;
+using MRQ.CryptoBot.Domain.Entities.Moralis;
 
-namespace MRQ.CryptoBot.Domain.Entities
+namespace MRQ.CryptoBot.Domain.Entities.Configurations
 {
     public class Configuration
     {
@@ -33,7 +34,7 @@ namespace MRQ.CryptoBot.Domain.Entities
         public string? KeyName { get; set; }
         public ChainType ChainType { get; set; }
         //Ao adicionar na tela adicionar como tabela
-        public IList<MoralisApiKey>? MoralisApiKeys { get; set; }
+        public IList<ApiKey>? MoralisApiKeys { get; set; }
 
 
         #endregion

@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MRQ.CryptoBot.Domain.Application.Moralis;
 using MRQ.CryptoBot.Domain.Entities;
+using MRQ.CryptoBot.Domain.Entities.Configurations;
 using MRQ.CryptoBot.Domain.Entities.Moralis;
 
 namespace MRQ.CryptoBot.Repository
@@ -20,7 +22,7 @@ namespace MRQ.CryptoBot.Repository
             modelBuilder.Entity<Configuration>().HasKey(b => b.Id);
             modelBuilder.Entity<RoutersForSwap>().HasKey(b => b.Id);
             modelBuilder.Entity<Router>().HasKey(b => b.Id);
-            modelBuilder.Entity<MoralisApiKey>().HasKey(b => b.Id);
+            modelBuilder.Entity<ApiKey>().HasKey(b => b.Id);
         }
 
         public DbSet<Balance>? Balances { get; set; }
@@ -30,6 +32,6 @@ namespace MRQ.CryptoBot.Repository
         public DbSet<Configuration>? Configurations { get; set; }
         public DbSet<RoutersForSwap>? RoutersForSwap { get; set; }
         public DbSet<Router>? Router { get; set; }
-        public DbSet<MoralisApiKey>? MoralisApiKey { get; set; }
+        public DbSet<ApiKey>? MoralisApiKey { get; set; }
     }
 }

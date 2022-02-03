@@ -1,8 +1,7 @@
-﻿namespace MRQ.CryptoBot.Domain.Entities
+﻿namespace MRQ.CryptoBot.Domain.Application.Moralis
 {
-
     //TODO esse é o lugar correto?
-    public class MoralisApiKey
+    public class ApiKeyDto
     {
         public int Id { get; set; }
         public string? Key { get; set; }

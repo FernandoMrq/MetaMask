@@ -7,6 +7,7 @@ using MRQ.CryptoBot.Domain.Adapter.Token;
 using MRQ.CryptoBot.Domain.Application;
 using MRQ.CryptoBot.Domain.Business;
 using MRQ.CryptoBot.Domain.Entities;
+using MRQ.CryptoBot.Domain.Entities.Configurations;
 using MRQ.CryptoBot.Domain.Entities.Moralis;
 using MRQ.CryptoBot.Integration.Moralis;
 using MRQ.CryptoBot.Integration.Nethereum;
@@ -41,7 +42,7 @@ namespace MRQ.CryptoBot.Client.Configurations
             services.AddTransient<ISQLiteEntityAdapter<Configuration>, EntityService<Configuration>>();
             services.AddTransient<ISQLiteEntityAdapter<RoutersForSwap>, EntityService<RoutersForSwap>>();
             services.AddTransient<ISQLiteEntityAdapter<Router>, EntityService<Router>>();
-            services.AddTransient<ISQLiteEntityAdapter<MoralisApiKey>, EntityService<MoralisApiKey>>();
+            services.AddTransient<ISQLiteEntityAdapter<ApiKey>, EntityService<ApiKey>>();
 
             return services;
         }

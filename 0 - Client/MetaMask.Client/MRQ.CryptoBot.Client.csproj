@@ -18,6 +18,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\1 - Core\MetaMask.Application\MRQ.CryptoBot.Application.csproj" />
+    <ProjectReference Include="..\..\1 - Core\MetaMask.Business\MRQ.CryptoBot.Business.csproj" />
+    <ProjectReference Include="..\..\1 - Core\MetaMask.Domain\MRQ.CryptoBot.Domain.csproj" />
+    <ProjectReference Include="..\..\2 - Adapter\MetaMask.Integration\MRQ.CryptoBot.Integration.csproj" />
     <ProjectReference Include="..\..\2 - Adapter\MRQ.CryptoBot.Repository\MRQ.CryptoBot.Repository\MRQ.CryptoBot.Repository.csproj" />
     <ProjectReference Include="..\..\3 - Infra\MetaMask.Infra\MRQ.CryptoBot.Infra.csproj" />
   </ItemGroup>

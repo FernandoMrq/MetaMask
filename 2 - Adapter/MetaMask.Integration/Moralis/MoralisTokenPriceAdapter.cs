@@ -28,12 +28,12 @@ namespace MRQ.CryptoBot.Integration.Moralis
 
 
             //TODO configurations não são setadas na mão, devem vir do banco
-            ConfigurationDto.MoralisApiKeys = new List<string>();
-            ConfigurationDto.KeyName = "X-API-Key";
+            ConfigurationStaticDto.MoralisApiKeys = new List<string>();
+            ConfigurationStaticDto.KeyName = "X-API-Key";
 
-            ConfigurationDto.MoralisApiKeys?.Add("jQWrwqiGwAWFhgQEDMiONpkTDU360LPjJfjvNiTvjDkHaFoF4KXKzgsMc5DSF7hd");
-            ConfigurationDto.MoralisApiKeys?.Add("DzlA8wTqt5Ui5yPFIPqgUw7uiabsFKGjFAML2p8lvPKYii6wZ2M3fi98WFRfHjEL");
-            ConfigurationDto.ChainType = ChainType.bsc;
+            ConfigurationStaticDto.MoralisApiKeys?.Add("jQWrwqiGwAWFhgQEDMiONpkTDU360LPjJfjvNiTvjDkHaFoF4KXKzgsMc5DSF7hd");
+            ConfigurationStaticDto.MoralisApiKeys?.Add("DzlA8wTqt5Ui5yPFIPqgUw7uiabsFKGjFAML2p8lvPKYii6wZ2M3fi98WFRfHjEL");
+            ConfigurationStaticDto.ChainType = ChainType.bsc;
         }
 
         private void AssignMoralisHeader()
@@ -41,11 +41,11 @@ namespace MRQ.CryptoBot.Integration.Moralis
             if (_httpClient is null)
                 return;
 
-            if (ConfigurationDto.KeyName == null)
+            if (ConfigurationStaticDto.KeyName == null)
                 return;
 
             _httpClient.DefaultRequestHeaders.Clear();
-            _httpClient.DefaultRequestHeaders.Add(ConfigurationDto.KeyName, ConfigurationDto.MoralisApiKeys?.NextOf());
+            _httpClient.DefaultRequestHeaders.Add(ConfigurationStaticDto.KeyName, ConfigurationStaticDto.MoralisApiKeys?.NextOf());
         }
 
         public async Task<Returned> GetTokenFromMoralis(TokenDto tokenDtoOrigin)
@@ -58,7 +58,7 @@ namespace MRQ.CryptoBot.Integration.Moralis
 
             AssignMoralisHeader();
 
-            var response = await _httpClient.GetAsync(string.Format(IntegrationResource.PathPrice, tokenDtoOrigin.Adress, ConfigurationDto.ChainType));
+            var response = await _httpClient.GetAsync(string.Format(IntegrationResource.PathPrice, tokenDtoOrigin.Adress, ConfigurationStaticDto.ChainType));
 
             if (_jsonSerializerOptions is null)
                 return _returned;
@@ -84,7 +84,7 @@ namespace MRQ.CryptoBot.Integration.Moralis
 
             AssignMoralisHeader();
 
-            var response = await _httpClient.GetAsync(string.Format(IntegrationResource.PathWalletBalanceDefault, wallet.Adress, ConfigurationDto.ChainType));
+            var response = await _httpClient.GetAsync(string.Format(IntegrationResource.PathWalletBalanceDefault, wallet.Adress, ConfigurationStaticDto.ChainType));
 
             if (_jsonSerializerOptions is null)
                 return _returned;
@@ -110,7 +110,7 @@ namespace MRQ.CryptoBot.Integration.Moralis
 
             AssignMoralisHeader();
 
-            var response = await _httpClient.GetAsync(string.Format(IntegrationResource.PathWalletBalance, wallet.Adress, ConfigurationDto.ChainType));
+            var response = await _httpClient.GetAsync(string.Format(IntegrationResource.PathWalletBalance, wallet.Adress, ConfigurationStaticDto.ChainType));
 
             if (_jsonSerializerOptions is null)
                 return _returned;
@@ -136,7 +136,7 @@ namespace MRQ.CryptoBot.Integration.Moralis
 
             AssignMoralisHeader();
 
-            var response = await _httpClient.GetAsync(string.Format(IntegrationResource.PathTransactionState, hashTransaction, ConfigurationDto.ChainType));
+            var response = await _httpClient.GetAsync(string.Format(IntegrationResource.PathTransactionState, hashTransaction, ConfigurationStaticDto.ChainType));
 
             if (_jsonSerializerOptions is null)
                 return _returned;

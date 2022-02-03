@@ -1,6 +1,4 @@
-﻿using MRQ.CryptoBot.Domain.Application.Configurations;
-
-namespace MRQ.CryptoBot.Domain.Entities
+﻿namespace MRQ.CryptoBot.Domain.Application.Configurations
 {
     public class RoutersForSwapDto
     {
