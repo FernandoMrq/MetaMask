@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Nethereum.Web3" Version="4.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Library\MRQ.ReturnContent\MRQ.ReturnContent.csproj" />
+    <ProjectReference Include="..\..\1 - Core\MetaMask.Domain\MRQ.CryptoBot.Domains.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="IntegrationResource.Designer.cs">
+      <DependentUpon>IntegrationResource.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="IntegrationResource.resx">
+      <LastGenOutput>IntegrationResource.Designer.cs</LastGenOutput>
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

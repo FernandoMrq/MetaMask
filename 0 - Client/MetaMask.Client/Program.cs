@@ -1,7 +1,8 @@
-using MetaMask.Client.Configurations;
 using Microsoft.Extensions.DependencyInjection;
+using MRQ.CryptoBot.Client.Configurations;
+using MRQ.CryptoBot.Infra;
 
-namespace MetaMask.Client
+namespace MRQ.CryptoBot.Client
 {
     internal static class Program
     {
@@ -18,7 +19,8 @@ namespace MetaMask.Client
             Application.Run(new Form1());
         }
 
-        public static IServiceProvider? ServiceProvider { get; set; }
+        public static IServiceProvider? ServiceProvider
+        { get; set; }
 
         static void ConfigureServices()
         {
@@ -27,7 +29,9 @@ namespace MetaMask.Client
             services.AddInfra();
             services.AddAdapter();
             services.AddBusiness();
-            services.AddOrchestrator();
+            services.AddApplication();
+            services.AddExternalServices();
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             ServiceProvider = services.BuildServiceProvider();
         }
