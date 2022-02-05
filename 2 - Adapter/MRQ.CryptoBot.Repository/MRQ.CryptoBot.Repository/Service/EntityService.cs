@@ -7,7 +7,7 @@ namespace MRQ.CryptoBot.Repository.Service
     {
         //TODO colocar internalizador de exception {todos os métodos}
         //TODO colocar simplificador de método para teste do context {todos os métodos}
-        protected SQLiteContext? context;
+        protected readonly SQLiteContext? context;
 
         public EntityService(SQLiteContext context)
         {
@@ -36,16 +36,18 @@ namespace MRQ.CryptoBot.Repository.Service
             return Enumerable.Empty<T>();
         }
 
-        public async Task<T> GetById(int Id)
+        public async Task<T?> GetById(int Id)
         {
-            //TODO resolver esse warning
-            return await context.Set<T>().FindAsync(Id);
+            if (context == null)
+                return null;
 
+            return await context.Set<T>().FindAsync(Id);
         }
 
         public async Task<bool> Insert(T obj)
         {
-            if (context != null) {
+            if (context != null)
+            {
                 await context.Set<T>().AddAsync(obj);
                 await context.SaveChangesAsync();
             }
@@ -63,6 +65,5 @@ namespace MRQ.CryptoBot.Repository.Service
 
             return true;
         }
-
     }
 }
