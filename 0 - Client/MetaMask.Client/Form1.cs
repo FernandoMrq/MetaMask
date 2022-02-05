@@ -19,6 +19,7 @@ namespace MRQ.CryptoBot.Client
         public Form1()
         {
             _moralisBalanceApplication = Program.ServiceProvider?.GetService(typeof(ITokenPriceApplication)) as ITokenPriceApplication;
+            //var databaseBusiness = Program.ServiceProvider?.GetService(typeof(IDatabaseBusiness)) as IDatabaseBusiness;
 
             _walletDtoOrigin = new WalletDto();
             _walletDtoDestination = new WalletDto();
@@ -28,6 +29,7 @@ namespace MRQ.CryptoBot.Client
 
             _returned = ReturnedExtension.CreateReturned();
 
+            //_configurationInterface = new ConfigurationInterface(databaseBusiness);
             _configurationInterface = new ConfigurationInterface();
 
             InicializeReturned();

@@ -3,13 +3,13 @@ using MRQ.CryptoBot.Domains.Adapter.Data;
 
 namespace MRQ.CryptoBot.Repository.Service
 {
-    public class EntityService<T> : ISQLiteEntityAdapter<T> where T : class
+    public class EntityDatabaseService<T> : ISQLiteEntityAdapter<T> where T : class
     {
         //TODO colocar internalizador de exception {todos os métodos}
         //TODO colocar simplificador de método para teste do context {todos os métodos}
         protected readonly SQLiteContext? context;
 
-        public EntityService(SQLiteContext context)
+        public EntityDatabaseService(SQLiteContext context)
         {
             this.context = context;
         }

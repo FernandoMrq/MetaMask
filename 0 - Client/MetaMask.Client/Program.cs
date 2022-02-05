@@ -1,6 +1,8 @@
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using MRQ.CryptoBot.Client.Configurations;
 using MRQ.CryptoBot.Infra;
+using MRQ.CryptoBot.Repository;
 
 namespace MRQ.CryptoBot.Client
 {
@@ -31,6 +33,8 @@ namespace MRQ.CryptoBot.Client
             services.AddBusiness();
             services.AddApplication();
             services.AddExternalServices();
+            //TODO colocar no ConfigureDatabase
+            services.AddDbContext<DbContext, SQLiteContext>(option => option.UseSqlite("Data Source = context.db"));
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             ServiceProvider = services.BuildServiceProvider();

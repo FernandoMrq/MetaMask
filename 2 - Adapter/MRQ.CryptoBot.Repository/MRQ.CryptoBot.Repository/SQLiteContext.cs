@@ -1,13 +1,16 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MRQ.CryptoBot.Domains.Application.Moralis;
 using MRQ.CryptoBot.Domains.Entities;
 using MRQ.CryptoBot.Domains.Entities.Configurations;
 using MRQ.CryptoBot.Domains.Entities.Moralis;
 
 namespace MRQ.CryptoBot.Repository
 {
-    public class SQLiteContext : DbContext
+    public partial class SQLiteContext : DbContext
     {
+        public SQLiteContext() { }
+
+        public SQLiteContext(DbContextOptions<SQLiteContext> options) : base(options) { }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlite("Data Source=context.db"); //Melhorar essa parte
