@@ -7,10 +7,8 @@ namespace MRQ.CryptoBot.Client.Interfaces
     {
         private readonly IDatabaseBusiness _databaseBusiness;
 
-        //public ConfigurationInterface(IDatabaseBusiness databaseBusiness)
         public ConfigurationInterface()
         {
-            //_databaseBusiness = databaseBusiness;
             _databaseBusiness = Program.ServiceProvider?.GetService(typeof(IDatabaseBusiness)) as IDatabaseBusiness;
 
             InitializeComponent();

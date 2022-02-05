@@ -9,3 +9,5 @@ Add-Migration inicial -StartupProject '0 - Client\MRQ.CryptoBot.Client' -Project
 Add-Migration dois -StartupProject '0 - Client\MRQ.CryptoBot.Client' -Project '2 - Adapter\MRQ.CryptoBot.Repository'
 
 update-database -StartupProject '0 - Client\MRQ.CryptoBot.Client' -Project '2 - Adapter\MRQ.CryptoBot.Repository'
+
+Algumas vezes o banco .db do sqlite não é movido para mesma pasta do projeto gerado no debug
